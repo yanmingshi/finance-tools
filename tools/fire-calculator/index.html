@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free FIRE Calculator - Financial Independence & Early Retirement | FinCalcPro</title>
+  <meta name="description" content="Free FIRE calculator. Find your FI number, calculate when you can retire early, and plan your path to financial independence. Supports multiple FIRE strategies.">
+  <link rel="canonical" href="https://fincalcpro.com/tools/fire-calculator/">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FIRE Calculator",
+    "url": "https://fincalcpro.com/tools/fire-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate your path to Financial Independence and Early Retirement (FIRE). Find your FI number and timeline."
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">Fin<span>CalcPro</span></a>
+      <nav class="site-nav">
+        <a href="/#calculators">Calculators</a>
+        <a href="/#tax-tools">Tax Tools</a>
+        <a href="/#compare">Comparisons</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-layout">
+      <!-- Content Column -->
+      <div class="tool-content">
+        <div class="breadcrumb"><a href="/">Home</a> / <a href="/#calculators">Calculators</a> / FIRE Calculator</div>
+        <h1>FIRE Calculator — Financial Independence & Early Retirement</h1>
+        <p style="color:var(--gray-500);margin-bottom:32px;">Calculate when you can achieve financial independence and retire early. Find your FI number, see your timeline, and compare different FIRE strategies.</p>
+
+        <div class="content-section">
+          <h2>How to Use This FIRE Calculator</h2>
+          <ol>
+            <li><strong>Enter your annual income</strong> — Your total pre-tax household income.</li>
+            <li><strong>Enter your annual expenses</strong> — What you spend per year (the lower this is, the faster you reach FIRE).</li>
+            <li><strong>Enter your current savings</strong> — Total invested assets you already have.</li>
+            <li><strong>Set your expected return</strong> — Historical stock market average is ~7% after inflation.</li>
+            <li><strong>Set inflation rate</strong> — Historical average is ~3%.</li>
+            <li><strong>Click Calculate</strong> — See your FI number, timeline, and year-by-year projection.</li>
+          </ol>
+        </div>
+
+        <div class="content-section">
+          <h2>What Is FIRE?</h2>
+          <p>FIRE stands for <strong>Financial Independence, Retire Early</strong>. It's a movement built around the idea that by saving a much higher percentage of your income (typically 50%+), you can achieve financial independence and retire decades earlier than the traditional age of 65.</p>
+          <p>The core principle is simple: <strong>the more you save, the less you need to live on, and the faster your investments grow</strong>. This creates a double benefit — you save more money each year AND your target number is lower because your expenses are lower.</p>
+
+          <h3>The 4% Rule</h3>
+          <p>The FIRE movement is built on the <strong>4% rule</strong> (also called the Trinity Study). It states that if you withdraw 4% of your portfolio in the first year of retirement, and adjust that amount for inflation each subsequent year, your portfolio has a very high probability of lasting 30+ years.</p>
+          <div class="formula-box">
+            FI Number = Annual Expenses × 25<br>
+            (Because 1 / 0.04 = 25)
+          </div>
+          <p>For example, if you spend $40,000 per year, your FI number is $1,000,000. Once you have $1M invested, you can theoretically live off 4% withdrawals indefinitely.</p>
+
+          <h3>Types of FIRE</h3>
+          <ul>
+            <li><strong>Lean FIRE:</strong> Living on less than $40,000/year. Requires a smaller portfolio (~$1M or less) but means a more frugal lifestyle.</li>
+            <li><strong>Regular FIRE:</strong> Living on $40,000-$100,000/year. The middle ground that most FIRE seekers target.</li>
+            <li><strong>Fat FIRE:</strong> Living on $100,000+/year. Requires a larger portfolio ($2.5M+) but maintains a comfortable lifestyle.</li>
+            <li><strong>Barista FIRE:</strong> Reaching enough savings to cover most expenses, but working part-time for supplemental income and health insurance.</li>
+            <li><strong>Coast FIRE:</strong> Having enough saved that you don't need to contribute more — just let compounding grow it to your FI number by traditional retirement age.</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>How Savings Rate Affects Your FIRE Timeline</h2>
+          <p>Your savings rate is the single most important factor in how quickly you reach FIRE:</p>
+          <ul>
+            <li><strong>10% savings rate:</strong> ~51 years to FIRE</li>
+            <li><strong>25% savings rate:</strong> ~32 years to FIRE</li>
+            <li><strong>50% savings rate:</strong> ~17 years to FIRE</li>
+            <li><strong>65% savings rate:</strong> ~10 years to FIRE</li>
+            <li><strong>75% savings rate:</strong> ~7 years to FIRE</li>
+          </ul>
+          <p>This assumes a 5% real return (after inflation). The math is powerful — going from 10% to 50% savings rate cuts your working years from 51 to 17, a reduction of 34 years!</p>
+        </div>
+
+        <div class="content-section">
+          <h2>FIRE Calculation Formula</h2>
+          <p>Our calculator uses a year-by-year simulation that accounts for:</p>
+          <ul>
+            <li>Annual savings from income minus expenses</li>
+            <li>Investment growth at your expected return rate</li>
+            <li>Inflation impact on expenses (your FI number grows with inflation)</li>
+            <li>Income and expense growth over time</li>
+          </ul>
+          <div class="formula-box">
+            Each Year:<br>
+            &nbsp;&nbsp;Savings = Income × (1 + incomeGrowth) - Expenses × (1 + inflationRate)<br>
+            &nbsp;&nbsp;Portfolio = (Previous Portfolio + Savings) × (1 + returnRate)<br>
+            &nbsp;&nbsp;FI Number = Expenses × (1 + inflationRate)^Year × 25<br>
+            &nbsp;&nbsp;FIRE achieved when Portfolio ≥ FI Number
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <div class="faq-question">Is the 4% rule still valid in 2025?</div>
+            <div class="faq-answer">The 4% rule is based on historical U.S. data from 1926-2020. Recent studies suggest it still works for 30-year retirements, but for early retirees (who may need 40-60 years of withdrawals), a more conservative 3.5% or 3% withdrawal rate may be safer. This would make your FI number = expenses × 28.6 or × 33.3 instead of × 25.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">What if the market crashes right after I retire?</div>
+            <div class="faq-answer">This is called sequence of returns risk, and it's the biggest risk for early retirees. If the market drops significantly in your first few years of retirement while you're withdrawing money, your portfolio may never recover. Mitigation strategies include: keeping 2-3 years of expenses in cash/bonds, reducing withdrawals during downturns, having a cash buffer, or maintaining a barista FIRE approach with some part-time income.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Does FIRE account for taxes?</div>
+            <div class="faq-answer">This calculator uses pre-tax income and estimates. In practice, you'll need to account for: income taxes on withdrawals from traditional accounts, capital gains taxes on taxable accounts, and potentially state taxes. Roth accounts can be withdrawn tax-free in retirement. Many FIRE retirees strategically manage their withdrawal sources to minimize taxes.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">What about health insurance before Medicare?</div>
+            <div class="faq-answer">Health insurance is one of the biggest challenges for early retirees. Options include: ACA marketplace plans (with subsidies based on income), COBRA continuation, health sharing ministries, or part-time work that provides coverage. Many FIRE retirees keep their income low enough to qualify for substantial ACA subsidies.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">How much should I have saved by 30, 35, 40 for FIRE?</div>
+            <div class="faq-answer">It depends entirely on your expenses and savings rate. A general benchmark: by 30, aim to have 1x your annual income saved. By 35, 2x. By 40, 3x. But for aggressive FIRE, you might aim for 2-3x by 30. Use our calculator with your specific numbers for an accurate timeline.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Can I still work after reaching FIRE?</div>
+            <div class="faq-answer">Absolutely! Many FIRE retirees continue working on their own terms — part-time, consulting, passion projects, or entrepreneurship. The key difference is that you work because you want to, not because you need the money. This is often called "post-FIRE work" and can significantly reduce the risk of running out of money.</div>
+          </div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="related-tools">
+          <h2>Related Calculators</h2>
+          <div class="related-grid">
+            <a href="/tools/roi-calculator/" class="related-card">
+              <h4>ROI Calculator</h4>
+              <p>Calculate investment returns</p>
+            </a>
+            <a href="/tools/compound-interest-calculator/" class="related-card">
+              <h4>Compound Interest</h4>
+              <p>See how savings grow over time</p>
+            </a>
+            <a href="/tools/capital-gains-tax-calculator/" class="related-card">
+              <h4>Capital Gains Tax</h4>
+              <p>Estimate taxes on investments</p>
+            </a>
+            <a href="/tools/salary-to-hourly-calculator/" class="related-card">
+              <h4>Salary to Hourly</h4>
+              <p>Understand your true pay rate</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator Column -->
+      <div class="calc-box">
+        <h2>Calculate Your FIRE Timeline</h2>
+        <div class="form-group">
+          <label for="annual-income">Annual Income ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="annual-income" value="80000" inputmode="decimal">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="annual-expenses">Annual Expenses ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="annual-expenses" value="40000" inputmode="decimal">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="current-savings">Current Savings ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="current-savings" value="50000" inputmode="decimal">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="expected-return">Expected Return (% after inflation)</label>
+          <div class="input-suffix">
+            <input type="text" id="expected-return" value="7" inputmode="decimal">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inflation-rate">Inflation Rate (%)</label>
+          <div class="input-suffix">
+            <input type="text" id="inflation-rate" value="3" inputmode="decimal">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="withdrawal-rate">Safe Withdrawal Rate (%)</label>
+          <select id="withdrawal-rate">
+            <option value="3">3% (Very Conservative)</option>
+            <option value="3.5">3.5% (Conservative)</option>
+            <option value="4" selected>4% (Standard)</option>
+          </select>
+        </div>
+        <button class="btn-calc" onclick="calculateFIRE()">Calculate FIRE Timeline</button>
+
+        <div class="calc-results" id="fire-results">
+          <div class="result-highlight">
+            <div class="big-number" id="fi-number">—</div>
+            <div class="big-label">Your FI Number</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Savings Rate</span>
+            <span class="result-value" id="savings-rate">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Annual Savings</span>
+            <span class="result-value" id="annual-savings">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Years to FIRE</span>
+            <span class="result-value" id="years-to-fire">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">FIRE Age</span>
+            <span class="result-value" id="fire-age">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Portfolio at FIRE</span>
+            <span class="result-value" id="portfolio-at-fire">—</span>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:var(--success-light);border-radius:var(--radius);text-align:center;">
+            <div style="font-size:.85rem;color:var(--gray-600);" id="fire-type">—</div>
+          </div>
+        </div>
+
+        <div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2025 FinCalcPro. All calculations are for informational purposes only. Consult a financial professional for advice specific to your situation.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/common.js"></script>
+  <script>
+    function calculateFIRE() {
+      const income = getVal('annual-income');
+      const expenses = getVal('annual-expenses');
+      const savings = getVal('current-savings');
+      const returnRate = getVal('expected-return') / 100;
+      const inflationRate = getVal('inflation-rate') / 100;
+      const wr = parseFloat(getSelect('withdrawal-rate')) / 100;
+      const fiMultiplier = 1 / wr;
+
+      if (income <= 0 || expenses <= 0) { alert('Please enter valid income and expenses.'); return; }
+      if (expenses >= income) { alert('Your expenses must be less than your income to reach FIRE.'); return; }
+
+      const annualSavings = income - expenses;
+      const savingsRate = annualSavings / income;
+      let currentFI = expenses * fiMultiplier;
+
+      // Year-by-year simulation
+      let portfolio = savings;
+      let year = 0;
+      const maxYears = 60;
+
+      while (portfolio < currentFI && year < maxYears) {
+        year++;
+        // Add this year's savings
+        portfolio += annualSavings * Math.pow(1 + inflationRate * 0.5, year); // income grows ~ inflation
+        // Apply returns
+        portfolio *= (1 + returnRate);
+        // FI number grows with inflation
+        currentFI = expenses * Math.pow(1 + inflationRate, year) * fiMultiplier;
+      }
+
+      // Determine FIRE type
+      let fireType = '';
+      if (expenses < 40000) fireType = '🔥 Lean FIRE — Frugal but free!';
+      else if (expenses < 100000) fireType = '🔥 Regular FIRE — Comfortable freedom!';
+      else fireType = '🔥 Fat FIRE — Luxury retirement!';
+
+      // Estimate FIRE age (assume starting at 30 if not specified)
+      const fireAge = 30 + year;
+
+      setResult('fi-number', fmt.currency(currentFI, 0));
+      setResult('savings-rate', fmt.percent(savingsRate * 100, 1));
+      setResult('annual-savings', fmt.currency(annualSavings, 0));
+      setResult('years-to-fire', year >= maxYears ? '60+ years' : fmt.years(year));
+      setResult('fire-age', year >= maxYears ? '90+' : fireAge.toString());
+      setResult('portfolio-at-fire', fmt.currency(portfolio, 0));
+      document.getElementById('fire-type').textContent = fireType;
+
+      showResults();
+    }
+
+    // Inject FAQ schema
+    injectFaqSchema([
+      { q: "Is the 4% rule still valid in 2025?", a: "The 4% rule still works for 30-year retirements based on historical data. For early retirees needing 40-60 years of withdrawals, a more conservative 3.5% or 3% rate may be safer." },
+      { q: "What if the market crashes right after I retire?", a: "This is sequence of returns risk. Mitigation strategies include: keeping 2-3 years of expenses in cash, reducing withdrawals during downturns, or maintaining part-time income." },
+      { q: "Does FIRE account for taxes?", a: "This calculator uses pre-tax estimates. In practice, account for taxes on withdrawals from traditional accounts and capital gains. Roth accounts can be withdrawn tax-free." },
+      { q: "What about health insurance before Medicare?", a: "Options include ACA marketplace plans (with subsidies), COBRA, health sharing ministries, or part-time work with coverage. Many FIRE retirees qualify for substantial ACA subsidies." },
+      { q: "How much should I have saved by 30, 35, 40 for FIRE?", a: "General benchmarks: 1x income by 30, 2x by 35, 3x by 40. For aggressive FIRE, aim for 2-3x by 30. Use this calculator with your specific numbers." },
+      { q: "Can I still work after reaching FIRE?", a: "Absolutely! Many FIRE retirees work on their own terms — part-time, consulting, or passion projects. The difference is working because you want to, not because you need to." }
+    ]);
+
+    calculateFIRE();
+  </script>
+</body>
+</html>
