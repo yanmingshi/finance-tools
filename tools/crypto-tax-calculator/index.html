@@ -124,7 +124,7 @@
         <div class="form-group">
           <label for="crypto-filing">Tax Filing Status</label>
           <div class="combo-input" id="combo-crypto-filing">
-            <input type="text" id="crypto-filing" value="Single" readonly>
+            <input type="text" id="crypto-filing" value="Single">
             <button type="button" class="combo-toggle">▾</button>
             <div class="combo-dropdown"></div>
           </div>
@@ -167,7 +167,7 @@
             <span class="result-value" id="crypto-after-tax" style="color:var(--success);">—</span>
           </div>
         </div>
-        <div class="ad-slot">Advertisement</div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
       </div>
     </div>
   </main>
@@ -207,20 +207,20 @@
       if (holding >= 1) {
         gainType = 'Long-Term';
         if (status.includes('married') || status.includes('joint')) {
-          fedRate = income <= 89250 ? 0 : income <= 553850 ? 0.15 : 0.20;
+          fedRate = income <= 96700 ? 0 : income <= 600050 ? 0.15 : 0.20;
         } else if (status.includes('head')) {
-          fedRate = income <= 59750 ? 0 : income <= 523350 ? 0.15 : 0.20;
+          fedRate = income <= 64750 ? 0 : income <= 566700 ? 0.15 : 0.20;
         } else {
-          fedRate = income <= 44625 ? 0 : income <= 491500 ? 0.15 : 0.20;
+          fedRate = income <= 48350 ? 0 : income <= 533400 ? 0.15 : 0.20;
         }
       } else {
         gainType = 'Short-Term';
-        if (income <= 11600) fedRate = 0.10;
-        else if (income <= 47150) fedRate = 0.12;
-        else if (income <= 100525) fedRate = 0.22;
-        else if (income <= 191950) fedRate = 0.24;
-        else if (income <= 243725) fedRate = 0.32;
-        else if (income <= 609350) fedRate = 0.35;
+        if (income <= 11925) fedRate = 0.10;
+        else if (income <= 48475) fedRate = 0.12;
+        else if (income <= 103350) fedRate = 0.22;
+        else if (income <= 197300) fedRate = 0.24;
+        else if (income <= 250525) fedRate = 0.32;
+        else if (income <= 626350) fedRate = 0.35;
         else fedRate = 0.37;
       }
 

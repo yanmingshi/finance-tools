@@ -47,7 +47,7 @@ function clearAllErrors() {
   document.querySelectorAll('.form-error').forEach(e => { e.classList.remove('show'); e.textContent = ''; });
 }
 
-// ===== Combo Input (editable dropdown) =====
+// ===== Combo Input (editable dropdown with search) =====
 function initCombo(id, options) {
   const container = document.getElementById(id);
   if (!container) return;
@@ -55,10 +55,14 @@ function initCombo(id, options) {
   const dropdown = container.querySelector('.combo-dropdown');
   const toggle = container.querySelector('.combo-toggle');
 
-  // Populate options
-  if (dropdown && options) {
+  function renderOptions(filter) {
+    if (!dropdown) return;
     dropdown.innerHTML = '';
-    options.forEach(opt => {
+    const filterLower = (filter || '').toLowerCase();
+    const filtered = filterLower
+      ? options.filter(o => (typeof o === 'object' ? o.value : o).toLowerCase().includes(filterLower))
+      : options;
+    filtered.forEach(opt => {
       const div = document.createElement('div');
       div.className = 'combo-option';
       if (typeof opt === 'object') {
@@ -68,7 +72,8 @@ function initCombo(id, options) {
         div.textContent = opt;
         div.dataset.value = opt;
       }
-      div.addEventListener('click', () => {
+      div.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // prevent blur
         input.value = div.dataset.value;
         dropdown.classList.remove('show');
         input.dispatchEvent(new Event('change', { bubbles: true }));
@@ -77,17 +82,26 @@ function initCombo(id, options) {
     });
   }
 
+  // Populate options (initial full list)
+  renderOptions('');
+
   // Toggle dropdown
   if (toggle) {
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
+      renderOptions(input.value);
       dropdown.classList.toggle('show');
     });
   }
 
-  // Show dropdown on focus
+  // Show dropdown on focus, filter on input
   if (input) {
     input.addEventListener('focus', () => {
+      renderOptions(input.value);
+      dropdown.classList.add('show');
+    });
+    input.addEventListener('input', () => {
+      renderOptions(input.value);
       dropdown.classList.add('show');
     });
     // Close on blur (with delay to allow click)

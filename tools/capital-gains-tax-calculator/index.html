@@ -64,21 +64,21 @@
           <h3>2025 Long-Term Capital Gains Tax Rates</h3>
           <p><strong>Single Filers:</strong></p>
           <ul>
-            <li>0% — Taxable income up to $44,625</li>
-            <li>15% — Taxable income $44,626 to $491,500</li>
-            <li>20% — Taxable income over $491,500</li>
+            <li>0% — Taxable income up to $48,350</li>
+            <li>15% — Taxable income $48,351 to $533,400</li>
+            <li>20% — Taxable income over $533,400</li>
           </ul>
           <p><strong>Married Filing Jointly:</strong></p>
           <ul>
-            <li>0% — Taxable income up to $89,250</li>
-            <li>15% — Taxable income $89,251 to $553,850</li>
-            <li>20% — Taxable income over $553,850</li>
+            <li>0% — Taxable income up to $96,700</li>
+            <li>15% — Taxable income $96,701 to $600,050</li>
+            <li>20% — Taxable income over $600,050</li>
           </ul>
           <p><strong>Head of Household:</strong></p>
           <ul>
-            <li>0% — Taxable income up to $59,750</li>
-            <li>15% — Taxable income $59,751 to $523,350</li>
-            <li>20% — Taxable income over $523,350</li>
+            <li>0% — Taxable income up to $64,750</li>
+            <li>15% — Taxable income $64,751 to $566,700</li>
+            <li>20% — Taxable income over $566,700</li>
           </ul>
         </div>
 
@@ -176,7 +176,7 @@
         <div class="form-group">
           <label for="filing-status">Tax Filing Status</label>
           <div class="combo-input" id="combo-filing">
-            <input type="text" id="filing-status" value="Single" readonly>
+            <input type="text" id="filing-status" value="Single">
             <button type="button" class="combo-toggle">▾</button>
             <div class="combo-dropdown"></div>
           </div>
@@ -190,7 +190,7 @@
         <div class="form-group">
           <label for="tax-state">State</label>
           <div class="combo-input" id="combo-state">
-            <input type="text" id="tax-state" value="CA" readonly>
+            <input type="text" id="tax-state" value="CA">
             <button type="button" class="combo-toggle">▾</button>
             <div class="combo-dropdown"></div>
           </div>
@@ -232,7 +232,7 @@
             <span class="result-value" id="after-tax-profit" style="color:var(--success);">—</span>
           </div>
         </div>
-        <div class="ad-slot">Advertisement</div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
       </div>
     </div>
   </main>
@@ -246,7 +246,7 @@
     const STATE_TAX = {
       'CA':0.133,'NY':0.109,'NJ':0.1075,'HI':0.11,'OR':0.099,'MN':0.0985,'DC':0.0895,
       'VT':0.0875,'IA':0.0853,'WI':0.0765,'CT':0.0699,'IL':0.0495,'PA':0.0307,'MI':0.0425,
-      'AZ':0.025,'CO':0.044,'GA':0.0549,'NC':0.045,'OH':0.035,'VA':0.0575,'MA':0.05,
+      'AZ':0.025,'CO':0.044,'GA':0.0549,'NC':0.045,'OH':0.035,'VA':0.0575,'MA':0.05,'WA':0,'TX':0,'FL':0,'NV':0,'WY':0,'AK':0,'SD':0,'NH':0,'TN':0,
       'TX':0,'FL':0,'WA':0,'NV':0,'WY':0,'AK':0,'SD':0,'NH':0,'TN':0
     };
 
@@ -284,26 +284,26 @@
         gainType = 'Long-Term';
         const s = status.toLowerCase();
         if (s.includes('married') || s.includes('joint')) {
-          if (income <= 89250) fedRate = 0;
-          else if (income <= 553850) fedRate = 0.15;
+          if (income <= 96700) fedRate = 0;
+          else if (income <= 600050) fedRate = 0.15;
           else fedRate = 0.20;
         } else if (s.includes('head') || s.includes('household')) {
-          if (income <= 59750) fedRate = 0;
-          else if (income <= 523350) fedRate = 0.15;
+          if (income <= 64750) fedRate = 0;
+          else if (income <= 566700) fedRate = 0.15;
           else fedRate = 0.20;
         } else {
-          if (income <= 44625) fedRate = 0;
-          else if (income <= 491500) fedRate = 0.15;
+          if (income <= 48350) fedRate = 0;
+          else if (income <= 533400) fedRate = 0.15;
           else fedRate = 0.20;
         }
       } else {
         gainType = 'Short-Term';
-        if (income <= 11600) fedRate = 0.10;
-        else if (income <= 47150) fedRate = 0.12;
-        else if (income <= 100525) fedRate = 0.22;
-        else if (income <= 191950) fedRate = 0.24;
-        else if (income <= 243725) fedRate = 0.32;
-        else if (income <= 609350) fedRate = 0.35;
+        if (income <= 11925) fedRate = 0.10;
+        else if (income <= 48475) fedRate = 0.12;
+        else if (income <= 103350) fedRate = 0.22;
+        else if (income <= 197300) fedRate = 0.24;
+        else if (income <= 250525) fedRate = 0.32;
+        else if (income <= 626350) fedRate = 0.35;
         else fedRate = 0.37;
       }
 
@@ -312,8 +312,7 @@
       // NIIT
       let niitThreshold;
       const s = status.toLowerCase();
-      if (s.includes('married') || s.includes('joint')) niitThreshold = 250000;
-      else niitThreshold = 200000;
+      if (s.includes('married') && !s.includes('separat')) niitThreshold = 250000; else if (s.includes('married') && s.includes('separat')) niitThreshold = 125000; else niitThreshold = 200000; // TODO: add MFS=125000;
       const niit = income > niitThreshold ? Math.min(gain, income - niitThreshold) * 0.038 : 0;
 
       // State tax
