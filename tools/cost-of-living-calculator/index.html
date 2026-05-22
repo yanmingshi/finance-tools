@@ -23,8 +23,8 @@
         <h2>How to Use This Calculator</h2>
         <ol>
           <li><strong>Enter your current salary</strong> — What you earn now in your current city.</li>
-          <li><strong>Select or type your current city</strong> — Choose from the list or type a custom city name.</li>
-          <li><strong>Select or type your target city</strong> — The city you're considering moving to.</li>
+          <li><strong>Select your current city</strong> — Choose from the dropdown list of major U.S. cities.</li>
+          <li><strong>Select your target city</strong> — Choose from the dropdown list.</li>
           <li><strong>Click Calculate</strong> — See your salary equivalent and detailed cost breakdown.</li>
         </ol>
       </div>
@@ -123,13 +123,7 @@
         </div>
         <div class="form-error"></div>
       </div>
-        <div class="form-group">
-          <label for="custom-to-index">Custom Cost of Living Index (Target City)</label>
-          <input type="text" id="custom-to-index" value="100" inputmode="decimal" style="width:100%;padding:8px 12px;border:1px solid var(--gray-300);border-radius:var(--radius);">
-          <div class="form-error" id="custom-to-error"></div>
-          <div style="font-size:.8rem;color:var(--gray-500);margin-top:4px;">NYC = 100. Find your city's index at <a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener">numbeo.com</a></div>
-        </div>
-      </div>
+        
       <button class="btn-calc" onclick="calculateCOL()">Compare Cities</button>
       <div class="calc-results" id="col-results">
         <div class="result-highlight">
