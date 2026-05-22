@@ -154,16 +154,19 @@
           <div class="input-prefix">
             <input type="text" id="investment-cost" value="10000" inputmode="decimal">
           </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="final-value">Final Value ($)</label>
           <div class="input-prefix">
             <input type="text" id="final-value" value="15000" inputmode="decimal">
           </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="holding-years">Holding Period (years, optional)</label>
           <input type="text" id="holding-years" value="3" inputmode="decimal">
+          <div class="form-error"></div>
         </div>
         <button class="btn-calc" onclick="calculateROI()">Calculate ROI</button>
 
@@ -202,12 +205,16 @@
   <script src="/js/common.js"></script>
   <script>
     function calculateROI() {
+      clearAllErrors();
+      let valid = true;
+      if (!validateField('investment-cost', [{ required: true, positive: true, msg: 'Enter a valid investment amount greater than 0' }])) valid = false;
+      if (!validateField('final-value', [{ required: true, positive: true, msg: 'Enter a valid final value greater than 0' }])) valid = false;
+      if (!validateField('holding-years', [{ min: 0, max: 100, msg: 'Holding period must be 0-100 years' }])) valid = false;
+      if (!valid) { hideResults(); return; }
+
       const cost = getVal('investment-cost');
       const final_ = getVal('final-value');
       const years = getVal('holding-years');
-
-      if (cost <= 0) { alert('Please enter a valid investment amount.'); return; }
-      if (final_ <= 0) { alert('Please enter a valid final value.'); return; }
 
       const profit = final_ - cost;
       const roi = (profit / cost) * 100;

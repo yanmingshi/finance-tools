@@ -161,38 +161,39 @@
           <div class="input-prefix">
             <input type="text" id="loan-amount" value="500000" inputmode="decimal">
           </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="interest-rate">Interest Rate (%)</label>
           <div class="input-suffix">
             <input type="text" id="interest-rate" value="7.5" inputmode="decimal">
           </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
-          <label for="loan-term">Loan Term</label>
-          <select id="loan-term">
-            <option value="5">5 years</option>
-            <option value="7">7 years</option>
-            <option value="10">10 years</option>
-            <option value="15" selected>15 years</option>
-            <option value="20">20 years</option>
-            <option value="25">25 years</option>
-          </select>
+          <label for="loan-term">Loan Term (years)</label>
+          <div class="combo-input" id="combo-loan-term">
+            <input type="text" id="loan-term" value="15" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
-          <label for="amortization">Amortization Period</label>
-          <select id="amortization">
-            <option value="0">Same as loan term</option>
-            <option value="20">20 years</option>
-            <option value="25" selected>25 years</option>
-            <option value="30">30 years</option>
-          </select>
+          <label for="amortization">Amortization Period (years)</label>
+          <div class="combo-input" id="combo-amortization">
+            <input type="text" id="amortization" value="25" inputmode="decimal" placeholder="Enter years or same as term">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="annual-noi">Annual NOI — Net Operating Income ($)</label>
           <div class="input-prefix">
             <input type="text" id="annual-noi" value="65000" inputmode="decimal">
           </div>
+          <div class="form-error"></div>
         </div>
         <button class="btn-calc" onclick="calculateMortgage()">Calculate Payment</button>
 
@@ -239,13 +240,23 @@
   <script src="/js/common.js"></script>
   <script>
     function calculateMortgage() {
+      clearAllErrors();
+      let valid = true;
+      if (!validateField('loan-amount', [{ required: true, positive: true, msg: 'Enter a valid loan amount greater than 0' }])) valid = false;
+      if (!validateField('interest-rate', [{ required: true, min: 0.01, max: 30, msg: 'Interest rate must be 0.01% - 30%' }])) valid = false;
+      if (!validateField('loan-term', [{ required: true, min: 1, max: 50, msg: 'Loan term must be 1-50 years' }])) valid = false;
+      if (!validateField('amortization', [{ min: 0, max: 50, msg: 'Amortization must be 0 (same as term) or 1-50 years' }])) valid = false;
+      if (!validateField('annual-noi', [{ min: 0, msg: 'NOI must be 0 or greater' }])) valid = false;
+      if (!valid) { hideResults(); return; }
+
       const P = getVal('loan-amount');
       const annualRate = getVal('interest-rate');
-      const termYears = parseInt(getSelect('loan-term'));
-      const amortYears = parseInt(getSelect('amortization'));
+      const termYears = getVal('loan-term');
+      const amortRaw = getVal('amortization');
       const annualNOI = getVal('annual-noi');
+      const amortYears = amortRaw > 0 ? amortRaw : termYears;
 
-      if (P <= 0 || annualRate <= 0) { alert('Please enter valid loan amount and interest rate.'); return; }
+      if (P <= 0 || annualRate <= 0) { return; }
 
       const r = annualRate / 100 / 12; // monthly rate
       const effectiveAmort = amortYears > 0 ? amortYears : termYears;
@@ -305,6 +316,17 @@
 
       showResults();
     }
+
+    // Init combo inputs
+    initCombo('combo-loan-term', [
+      {value: '5', desc: '5 years'}, {value: '7', desc: '7 years'}, {value: '10', desc: '10 years'},
+      {value: '15', desc: '15 years'}, {value: '20', desc: '20 years'}, {value: '25', desc: '25 years'},
+      {value: '30', desc: '30 years'}
+    ]);
+    initCombo('combo-amortization', [
+      {value: '0', desc: 'Same as loan term'}, {value: '20', desc: '20 years'},
+      {value: '25', desc: '25 years'}, {value: '30', desc: '30 years'}
+    ]);
 
     // Inject FAQ schema
     injectFaqSchema([
