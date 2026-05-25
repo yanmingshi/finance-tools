@@ -34,11 +34,7 @@
 </div>
 <div class="form-group">
 <label for="filing-status">Tax Filing Status</label>
-<div class="combo-input" id="combo-filing">
-<input type="text" id="filing-status" value="Single">
-<button type="button" class="combo-toggle">▾</button>
-<div class="combo-dropdown"></div>
-</div>
+<select id="filing-status"></select>
 <div class="form-error"></div>
 </div>
 <div class="form-group">
@@ -48,11 +44,7 @@
 </div>
 <div class="form-group">
 <label for="tax-state">State</label>
-<div class="combo-input" id="combo-state">
-<input type="text" id="tax-state" value="CA">
-<button type="button" class="combo-toggle">▾</button>
-<div class="combo-dropdown"></div>
-</div>
+<select id="tax-state"></select>
 <div class="form-error"></div>
 </div>
 <button class="btn-calc" onclick="calculateCGTax()">Calculate Tax</button>
@@ -297,21 +289,107 @@ function calculateCGTax() {
   showResults();
 }
 
-initCombo('combo-filing', [
-  {value:'Single', desc:'Individual'},
-  {value:'Married Joint', desc:'Married Filing Jointly'},
-  {value:'Head of Household', desc:'Head of Household'}
-]);
+(function(){
+  var sel = document.getElementById('filing-status');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = 'Single';
+  opt.textContent = 'Single (Individual)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Married Joint';
+  opt.textContent = 'Married Joint (Married Filing Jointly)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Head of Household';
+  opt.textContent = 'Head of Household (Head of Household)';
+  sel.appendChild(opt);
+})();
 
-initCombo('combo-state', [
-  {value:'CA',desc:'13.3%'},{value:'NY',desc:'10.9%'},{value:'NJ',desc:'10.75%'},
-  {value:'IL',desc:'4.95%'},{value:'PA',desc:'3.07%'},{value:'MI',desc:'4.25%'},
-  {value:'OH',desc:'3.5%'},{value:'NC',desc:'4.5%'},{value:'GA',desc:'5.49%'},
-  {value:'VA',desc:'5.75%'},{value:'MA',desc:'5%'},
-  {value:'TX',desc:'No tax'},{value:'FL',desc:'No tax'},{value:'WA',desc:'No tax'},
-  {value:'NV',desc:'No tax'},{value:'WY',desc:'No tax'},{value:'AK',desc:'No tax'},
-  {value:'SD',desc:'No tax'},{value:'NH',desc:'No tax'},{value:'TN',desc:'No tax'}
-]);
+(function(){
+  var sel = document.getElementById('tax-state');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = 'CA';
+  opt.textContent = 'CA (13.3%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'NY';
+  opt.textContent = 'NY (10.9%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'NJ';
+  opt.textContent = 'NJ (10.75%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'IL';
+  opt.textContent = 'IL (4.95%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'PA';
+  opt.textContent = 'PA (3.07%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'MI';
+  opt.textContent = 'MI (4.25%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'OH';
+  opt.textContent = 'OH (3.5%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'NC';
+  opt.textContent = 'NC (4.5%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'GA';
+  opt.textContent = 'GA (5.49%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'VA';
+  opt.textContent = 'VA (5.75%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'MA';
+  opt.textContent = 'MA (5%)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'TX';
+  opt.textContent = 'TX (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'FL';
+  opt.textContent = 'FL (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'WA';
+  opt.textContent = 'WA (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'NV';
+  opt.textContent = 'NV (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'WY';
+  opt.textContent = 'WY (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'AK';
+  opt.textContent = 'AK (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'SD';
+  opt.textContent = 'SD (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'NH';
+  opt.textContent = 'NH (No tax)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'TN';
+  opt.textContent = 'TN (No tax)';
+  sel.appendChild(opt);
+})();
 
 injectFaqSchema([
   {q:"Do I have to pay capital gains tax if I don't sell?",a:"No. Capital gains tax is only triggered when you sell an asset. Unrealized gains are not taxed. Buy-and-hold investing defers taxes indefinitely."},

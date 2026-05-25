@@ -30,11 +30,7 @@
         </div>
         <div class="form-group">
           <label for="mortgage-rate">Mortgage Rate (%)</label>
-          <div class="combo-input" id="combo-mort-rate">
-            <input type="text" id="mortgage-rate" value="6.5" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="mortgage-rate"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -247,10 +243,30 @@
       showResults();
     }
 
-    initCombo('combo-mort-rate', [
-      {value:'5.5',desc:'Excellent credit'},{value:'6.0',desc:'Good credit'},
-      {value:'6.5',desc:'Average'},{value:'7.0',desc:'Fair credit'},{value:'7.5',desc:'Below average'}
-    ]);
+    (function(){
+  var sel = document.getElementById('mort-rate');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '5.5';
+  opt.textContent = '5.5 (Excellent credit)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '6.0';
+  opt.textContent = '6.0 (Good credit)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '6.5';
+  opt.textContent = '6.5 (Average)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '7.0';
+  opt.textContent = '7.0 (Fair credit)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '7.5';
+  opt.textContent = '7.5 (Below average)';
+  sel.appendChild(opt);
+})();
 
     injectFaqSchema([
       {q:"How many years do I need to stay for buying to be worth it?",a:"Typically 5-7 years to break even after closing and selling costs. Use this calculator with your specific numbers."},

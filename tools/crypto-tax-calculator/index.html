@@ -35,11 +35,7 @@
         </div>
         <div class="form-group">
           <label for="crypto-filing">Tax Filing Status</label>
-          <div class="combo-input" id="combo-crypto-filing">
-            <input type="text" id="crypto-filing" value="Single">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="crypto-filing"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -239,9 +235,22 @@
       showResults();
     }
 
-    initCombo('combo-crypto-filing', [
-      {value:'Single',desc:'Individual'},{value:'Married Joint',desc:'Married Filing Jointly'},{value:'Head of Household',desc:'Head of Household'}
-    ]);
+    (function(){
+  var sel = document.getElementById('crypto-filing');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = 'Single';
+  opt.textContent = 'Single (Individual)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Married Joint';
+  opt.textContent = 'Married Joint (Married Filing Jointly)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Head of Household';
+  opt.textContent = 'Head of Household (Head of Household)';
+  sel.appendChild(opt);
+})();
 
     injectFaqSchema([
       {q:"Do I pay tax if I just buy and hold crypto?",a:"No. Buying with fiat and holding is not taxable. Tax is owed only when you sell, trade, or use crypto."},

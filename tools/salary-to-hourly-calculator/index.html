@@ -44,11 +44,7 @@
         </div>
         <div class="form-group">
           <label for="pay-period">Pay Period</label>
-          <div class="combo-input" id="combo-pay-period">
-            <input type="text" id="pay-period" value="Annual">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="pay-period"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -278,11 +274,38 @@
       showResults();
     }
 
-    initCombo('combo-pay-period', [
-      {value: 'Annual', desc: 'Yearly salary'}, {value: 'Monthly', desc: 'Per month'},
-      {value: 'Bi-weekly', desc: 'Every 2 weeks'}, {value: 'Semi-monthly', desc: 'Twice per month'},
-      {value: 'Weekly', desc: 'Per week'}, {value: 'Hourly', desc: 'Per hour'}, {value: 'Daily', desc: 'Per day'}
-    ]);
+    (function(){
+  var sel = document.getElementById('pay-period');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = 'Annual';
+  opt.textContent = 'Annual (Yearly salary)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Monthly';
+  opt.textContent = 'Monthly (Per month)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Bi-weekly';
+  opt.textContent = 'Bi-weekly (Every 2 weeks)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Semi-monthly';
+  opt.textContent = 'Semi-monthly (Twice per month)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Weekly';
+  opt.textContent = 'Weekly (Per week)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Hourly';
+  opt.textContent = 'Hourly (Per hour)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Daily';
+  opt.textContent = 'Daily (Per day)';
+  sel.appendChild(opt);
+})();
 
     injectFaqSchema([
       { q: "How do I calculate my true hourly rate from a salary?", a: "Divide your annual salary by the total hours you actually work per year. If you earn $60,000 and work 40 hours/week for 52 weeks, your hourly rate is $60,000 ÷ 2,080 = $28.85." },

@@ -60,29 +60,17 @@
         </div>
         <div class="form-group">
           <label for="expected-return">Expected Return (% after inflation)</label>
-          <div class="combo-input" id="combo-return">
-            <input type="text" id="expected-return" value="7" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="expected-return"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="inflation-rate">Inflation Rate (%)</label>
-          <div class="combo-input" id="combo-inflation">
-            <input type="text" id="inflation-rate" value="3" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="inflation-rate"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
           <label for="withdrawal-rate">Safe Withdrawal Rate (%)</label>
-          <div class="combo-input" id="combo-wr">
-            <input type="text" id="withdrawal-rate" value="4" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="withdrawal-rate"></select>
           <div class="form-error"></div>
         </div>
         <button class="btn-calc" onclick="calculateFIRE()">Calculate FIRE Timeline</button>
@@ -324,16 +312,62 @@
     }
 
     // Init combo inputs
-    initCombo('combo-return', [
-      {value: '5', desc: 'Conservative'}, {value: '7', desc: 'Stock market avg'}, {value: '9', desc: 'Aggressive'}
-    ]);
-    initCombo('combo-inflation', [
-      {value: '2', desc: 'Low'}, {value: '3', desc: 'Historical avg'}, {value: '4', desc: 'High'}
-    ]);
-    initCombo('combo-wr', [
-      {value: '3', desc: 'Very Conservative'}, {value: '3.5', desc: 'Conservative'},
-      {value: '4', desc: 'Standard 4% rule'}, {value: '4.5', desc: 'Moderate'}, {value: '5', desc: 'Aggressive'}
-    ]);
+    (function(){
+  var sel = document.getElementById('return');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '5';
+  opt.textContent = '5 (Conservative)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '7';
+  opt.textContent = '7 (Stock market avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '9';
+  opt.textContent = '9 (Aggressive)';
+  sel.appendChild(opt);
+})();
+    (function(){
+  var sel = document.getElementById('inflation');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '2';
+  opt.textContent = '2 (Low)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '3';
+  opt.textContent = '3 (Historical avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '4';
+  opt.textContent = '4 (High)';
+  sel.appendChild(opt);
+})();
+    (function(){
+  var sel = document.getElementById('wr');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '3';
+  opt.textContent = '3 (Very Conservative)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '3.5';
+  opt.textContent = '3.5 (Conservative)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '4';
+  opt.textContent = '4 (Standard 4% rule)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '4.5';
+  opt.textContent = '4.5 (Moderate)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '5';
+  opt.textContent = '5 (Aggressive)';
+  sel.appendChild(opt);
+})();
 
     // Inject FAQ schema
     injectFaqSchema([

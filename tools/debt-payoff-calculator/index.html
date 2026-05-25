@@ -44,11 +44,7 @@
         </div>
         <div class="form-group">
           <label for="interest-rate-debt">Average Interest Rate (%)</label>
-          <div class="combo-input" id="combo-rate-debt">
-            <input type="text" id="interest-rate-debt" value="18" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="interest-rate-debt"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -243,12 +239,38 @@
       showResults();
     }
 
-    initCombo('combo-rate-debt', [
-      {value: '3', desc: 'Student loan avg'}, {value: '5', desc: 'Personal loan avg'},
-      {value: '10', desc: 'Low credit card'}, {value: '15', desc: 'Average credit card'},
-      {value: '18', desc: 'Typical credit card'}, {value: '24', desc: 'High credit card'},
-      {value: '29', desc: 'Subprime credit card'}
-    ]);
+    (function(){
+  var sel = document.getElementById('rate-debt');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '3';
+  opt.textContent = '3 (Student loan avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '5';
+  opt.textContent = '5 (Personal loan avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '10';
+  opt.textContent = '10 (Low credit card)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '15';
+  opt.textContent = '15 (Average credit card)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '18';
+  opt.textContent = '18 (Typical credit card)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '24';
+  opt.textContent = '24 (High credit card)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '29';
+  opt.textContent = '29 (Subprime credit card)';
+  sel.appendChild(opt);
+})();
 
     injectFaqSchema([
       { q: "Should I pay off debt or invest?", a: "If your debt costs more than 7% (stock market average), pay the debt first. For low-rate debts (mortgage at 4-5%, student loans at 3-5%), investing extra money often makes more sense." },

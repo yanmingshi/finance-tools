@@ -30,11 +30,7 @@
         </div>
         <div class="form-group">
           <label for="annual-rate">Annual Interest Rate (%)</label>
-          <div class="combo-input" id="combo-rate">
-            <input type="text" id="annual-rate" value="7" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="annual-rate"></select>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -44,11 +40,7 @@
         </div>
         <div class="form-group">
           <label for="compound-freq">Compounding Frequency</label>
-          <div class="combo-input" id="compound-combo">
-            <input type="text" id="compound-freq" value="Monthly">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
+          <select id="compound-freq"></select>
           <div class="form-error"></div>
         </div>
         <button class="btn-calc" onclick="calculateCI()">Calculate Growth</button>
@@ -213,14 +205,58 @@
       showResults();
     }
 
-    initCombo('combo-rate', [
-      {value:'1',desc:'Savings account'},{value:'4',desc:'High-yield savings'},{value:'5',desc:'CD'},
-      {value:'7',desc:'Stock market avg'},{value:'10',desc:'S&P 500 avg'},{value:'12',desc:'Aggressive portfolio'}
-    ]);
-    initCombo('compound-combo', [
-      {value:'Annually',desc:'Once per year'},{value:'Semi-annually',desc:'Twice per year'},
-      {value:'Quarterly',desc:'4x per year'},{value:'Monthly',desc:'12x per year'},{value:'Daily',desc:'365x per year'}
-    ]);
+    (function(){
+  var sel = document.getElementById('rate');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = '1';
+  opt.textContent = '1 (Savings account)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '4';
+  opt.textContent = '4 (High-yield savings)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '5';
+  opt.textContent = '5 (CD)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '7';
+  opt.textContent = '7 (Stock market avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '10';
+  opt.textContent = '10 (S&P 500 avg)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = '12';
+  opt.textContent = '12 (Aggressive portfolio)';
+  sel.appendChild(opt);
+})();
+    (function(){
+  var sel = document.getElementById('compound-combo');
+  if(!sel) return;
+  var opt = document.createElement('option');
+  opt.value = 'Annually';
+  opt.textContent = 'Annually (Once per year)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Semi-annually';
+  opt.textContent = 'Semi-annually (Twice per year)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Quarterly';
+  opt.textContent = 'Quarterly (4x per year)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Monthly';
+  opt.textContent = 'Monthly (12x per year)';
+  sel.appendChild(opt);
+  var opt = document.createElement('option');
+  opt.value = 'Daily';
+  opt.textContent = 'Daily (365x per year)';
+  sel.appendChild(opt);
+})();
 
     injectFaqSchema([
       {q:"What is a good compound interest rate?",a:"Savings accounts: 0.5-5%, CDs: 4-5%, Bonds: 4-6%, Stock market: 7-10% (before inflation). Higher returns come with higher risk."},

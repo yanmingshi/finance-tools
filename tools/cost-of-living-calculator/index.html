@@ -23,27 +23,16 @@
         <div class="form-error"></div>
       </div>
       <div class="form-group">
- <label for="from-state">Current State</label>
- <select id="from-state"><option value="">— Select state —</option></select>
+ <label for="from-city">Current City</label>
+ <select id="from-city"><option value="">— Select city —</option></select>
  <div class="form-error"></div>
  </div>
  <div class="form-group">
- <label for="current-city">Current City</label>
- <select id="current-city" disabled><option value="">— Select state first —</option></select>
+ <label for="to-city">Target City</label>
+ <select id="to-city"><option value="">— Select city —</option></select>
  <div class="form-error"></div>
  </div>
- <div class="form-group">
- <label for="to-state">Target State</label>
- <select id="to-state"><option value="">— Select state —</option></select>
- <div class="form-error"></div>
- </div>
- <div class="form-group">
- <label for="target-city">Target City</label>
- <select id="target-city" disabled><option value="">— Select state first —</option></select>
- <div class="form-error"></div>
- </div>
- <div id="city-data-preview" style="display:none;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:12px 16px;margin-bottom:12px;font-size:.85rem;">
- <div id="from-city-data" style="margin-bottom:8px;"></div>
+ 
  <div id="to-city-data"></div>
  </div>
 <button class="btn-calc" onclick="calculateCOL()">Compare Cities</button>
@@ -212,135 +201,68 @@ const COLI = {
   'San Antonio, TX':{overall:63.8,housing:36.9,groceries:68.1,restaurant:62.6,state:'TX'}
 };
 
-// Build state→cities mapping for cascading dropdowns
-const STATE_MAP = {};
-const STATE_NAMES = {AZ:'Arizona',AL:'Alabama',CA:'California',CO:'Colorado',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',IL:'Illinois',IN:'Indiana',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',MA:'Massachusetts',MD:'Maryland',MI:'Michigan',MN:'Minnesota',MO:'Missouri',NC:'North Carolina',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',TN:'Tennessee',TX:'Texas',UT:'Utah',WA:'Washington'};
+// Build sorted city list
+const cityList = Object.keys(COLI).sort();
 
-Object.keys(COLI).forEach(city => {
-  const st = COLI[city].state;
-  if (!STATE_MAP[st]) STATE_MAP[st] = [];
-  STATE_MAP[st].push(city);
-});
-
-// Sort states alphabetically by name
-const sortedStates = Object.keys(STATE_MAP).sort((a,b) => (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b));
-
-function populateStates(selectId) {
+function populateCitySelect(selectId) {
   const sel = document.getElementById(selectId);
-  sel.innerHTML = '<option value="">— Select state —</option>';
-  sortedStates.forEach(st => {
-    const opt = document.createElement('option');
-    opt.value = st;
-    opt.textContent = STATE_NAMES[st] || st;
-    sel.appendChild(opt);
-  });
-}
-
-function populateCities(stateCode, citySelectId) {
-  const sel = document.getElementById(citySelectId);
-  sel.innerHTML = '';
-  if (!stateCode || !STATE_MAP[stateCode]) {
-    sel.disabled = true;
-    sel.innerHTML = '<option value="">— Select state first —</option>';
-    return;
-  }
-  sel.disabled = false;
+  if (!sel) return;
   sel.innerHTML = '<option value="">— Select city —</option>';
-  STATE_MAP[stateCode].forEach(city => {
+  cityList.forEach(city => {
     const opt = document.createElement('option');
     opt.value = city;
-    opt.textContent = city;
+    const d = COLI[city];
+    opt.textContent = city + ' (Index: ' + d.overall.toFixed(1) + ')';
     sel.appendChild(opt);
   });
 }
 
-function showCityData(cityName, elementId) {
-  const el = document.getElementById(elementId);
-  if (!cityName || !COLI[cityName]) {
-    el.innerHTML = '';
-    return;
-  }
-  const d = COLI[cityName];
-  el.innerHTML = '<strong>' + cityName + '</strong> (Numbeo 2025): '
-    + 'Overall: <strong>' + d.overall.toFixed(1) + '</strong> | '
-    + 'Housing: <strong>' + d.housing.toFixed(1) + '</strong> | '
-    + 'Groceries: <strong>' + d.groceries.toFixed(1) + '</strong> | '
-    + 'Restaurant: <strong>' + d.restaurant.toFixed(1) + '</strong>'
-    + ' <span style="color:var(--gray-500)">(NYC=100)</span>';
-}
-
-populateStates('from-state');
-populateStates('to-state');
-
-// Cascade: state → city
-document.getElementById('from-state').addEventListener('change', function() {
-  populateCities(this.value, 'current-city');
-  showCityData('', 'from-city-data');
-  updateDataPreview();
-});
-document.getElementById('to-state').addEventListener('change', function() {
-  populateCities(this.value, 'target-city');
-  showCityData('', 'to-city-data');
-  updateDataPreview();
-});
-
-// Show data on city selection
-document.getElementById('current-city').addEventListener('change', function() {
-  showCityData(this.value, 'from-city-data');
-  updateDataPreview();
-});
-document.getElementById('target-city').addEventListener('change', function() {
-  showCityData(this.value, 'to-city-data');
-  updateDataPreview();
-});
-
-function updateDataPreview() {
-  const from = document.getElementById('current-city').value;
-  const to = document.getElementById('target-city').value;
-  const preview = document.getElementById('city-data-preview');
-  if (from && COLI[from] || to && COLI[to]) {
-    preview.style.display = 'block';
-  } else {
-    preview.style.display = 'none';
-  }
-}
+populateCitySelect('from-city');
+populateCitySelect('to-city');
 
 function calculateCOL() {
   clearAllErrors();
   if (!validateField('current-salary-col', [{required:true, positive:true, msg:'Enter a valid salary greater than 0'}])) {
-    hideResults(); return;
+    hideResults();
+    return;
   }
   const salary = getVal('current-salary-col');
   if (salary > 100000000) {
     showFieldError(document.getElementById('current-salary-col').closest('.form-group'),
       document.getElementById('current-salary-col').closest('.form-group').querySelector('.form-error'),
       'Salary seems unusually high. Please check your input.');
-    hideResults(); return;
+    hideResults();
+    return;
   }
-  const from = document.getElementById('current-city').value;
-  const to = document.getElementById('target-city').value;
+
+  const from = document.getElementById('from-city').value;
+  const to = document.getElementById('to-city').value;
+
   if (!from || !COLI[from]) {
-    showFieldError(document.getElementById('current-city').closest('.form-group'),
-      document.getElementById('current-city').closest('.form-group').querySelector('.form-error'),
-      'Please select a valid city');
-    hideResults(); return;
+    const grp = document.getElementById('from-city').closest('.form-group');
+    showFieldError(grp, grp.querySelector('.form-error'), 'Please select a valid city');
+    hideResults();
+    return;
   }
   if (!to || !COLI[to]) {
-    showFieldError(document.getElementById('target-city').closest('.form-group'),
-      document.getElementById('target-city').closest('.form-group').querySelector('.form-error'),
-      'Please select a valid city');
-    hideResults(); return;
+    const grp = document.getElementById('to-city').closest('.form-group');
+    showFieldError(grp, grp.querySelector('.form-error'), 'Please select a valid city');
+    hideResults();
+    return;
   }
+
   const fromData = COLI[from];
   const toData = COLI[to];
   const equivalent = salary * (toData.overall / fromData.overall);
   const diff = equivalent - salary;
   const housingDiff = salary * 0.35 * (toData.housing - fromData.housing) / fromData.overall;
+
   setResult('equivalent-salary', fmt.currency(equivalent, 0));
   setResult('cost-diff', (diff >= 0 ? '+' : '') + fmt.currency(diff, 0) + ' (' + (diff/salary*100 >= 0 ? '+' : '') + (diff/salary*100).toFixed(1) + '%)');
   setResult('from-index', fromData.overall.toFixed(1));
   setResult('to-index', toData.overall.toFixed(1));
   setResult('housing-diff', (housingDiff >= 0 ? '+' : '') + fmt.currency(housingDiff, 0) + '/yr');
+
   const summary = diff < 0
     ? 'Target city is cheaper! You need ' + fmt.percent(Math.abs(diff/salary)*100,1) + ' less to maintain your lifestyle.'
     : diff > 0
@@ -355,8 +277,9 @@ injectFaqSchema([
   {q:"Should I move to a lower cost of living area?",a:"If you can keep the same salary (remote work), moving to a cheaper area is a significant raise. If you take a local job at local rates, salaries usually track cost of living."},
   {q:"How much salary do I need to maintain my lifestyle?",a:"Use this calculator to find your equivalent salary. For example, $100K in New York (index 100) ≈ $69.6K in Austin (index 69.6) for the same standard of living."},
   {q:"Does cost of living affect salary negotiations?",a:"Yes. Companies in high-cost areas pay more. For remote roles, know your market value and the cost differential to negotiate effectively."},
-  {q:"What cities are included?",a:"We include 39 major U.S. cities across 23 states with verified Numbeo cost of living indices (2025, NYC=100 baseline). Data covers overall cost, housing/rent, groceries, and restaurant prices."}
+  {q:"What cities are included?",a:"We include 39 major U.S. cities across 28 states with verified Numbeo cost of living indices (2025, NYC=100 baseline). Data covers overall cost, housing/rent, groceries, and restaurant prices."}
 ]);
+
 </script>
 </body>
 </html>
