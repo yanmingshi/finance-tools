@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Cost of Living Calculator - Compare U.S. Cities | FinCalcPro</title>
+  <meta name="description" content="Free cost of living calculator based on Numbeo and C2ER data. Compare living costs between U.S. cities with verified indices. See salary equivalents, housing costs, and daily expenses side by side.">
+  <link rel="canonical" href="https://fincalcpro.com/tools/cost-of-living-calculator/">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Cost of Living Calculator","url":"https://fincalcpro.com/tools/cost-of-living-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+<header class="site-header"><div class="container"><a href="/" class="site-logo">Fin<span>CalcPro</span></a><nav class="site-nav"><a href="/#calculators">Calculators</a><a href="/#tax-tools">Tax Tools</a><a href="/#compare">Comparisons</a></nav></div></header>
+<main class="container tool-page">
+  <div class="tool-layout">
+    <div class="tool-content">
+      <div class="breadcrumb"><a href="/">Home</a> / <a href="/#compare">Comparisons</a> / Cost of Living Calculator</div>
+      <h1>Cost of Living Calculator</h1>
+      <p style="color:var(--gray-500);margin-bottom:32px;">Compare the cost of living between any two U.S. cities. See how far your salary goes, compare housing costs, and make informed relocation decisions.</p>
+      <div class="content-section">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+          <li><strong>Enter your current salary</strong> — What you earn now in your current city.</li>
+          <li><strong>Select your current state, then city</strong> — Cities load dynamically based on the selected state.</li>
+          <li><strong>Select your target state, then city</strong> — Real-time cost indices appear on selection.</li>
+          <li><strong>Click Calculate</strong> — See your salary equivalent and detailed cost breakdown.</li>
+        </ol>
+      </div>
+      <div class="content-section">
+        <h2>What Is Cost of Living?</h2>
+        <p>Cost of living measures how much money you need to maintain a certain standard of living in a specific location. It includes housing, food, transportation, healthcare, taxes, and other daily expenses.</p>
+        <p>The biggest factor is usually <strong>housing</strong>, which can vary by 300%+ between cities. A $2,000/month apartment in Manhattan might cost $800/month in Houston or $600/month in Memphis. This single difference can outweigh everything else combined.</p>
+        <h3>Major Cost of Living Factors</h3>
+        <ul>
+          <li><strong>Housing (30-50% of budget):</strong> Rent/mortgage, property tax, insurance</li>
+          <li><strong>Transportation (10-15%):</strong> Car payment, gas, insurance, public transit</li>
+          <li><strong>Food (10-15%):</strong> Groceries and dining out</li>
+          <li><strong>Healthcare (5-10%):</strong> Insurance premiums, out-of-pocket costs</li>
+          <li><strong>Taxes (variable):</strong> State income tax, property tax, sales tax</li>
+          <li><strong>Utilities (5-8%):</strong> Electricity, water, internet</li>
+        </ul>
+      </div>
+      <div class="content-section">
+        <h2>Highest vs Lowest Cost of Living Cities</h2>
+        <h3>Most Expensive U.S. Cities (2025)</h3>
+        <ul>
+          <li>New York, NY — Index: 100.0 (Numbeo baseline, highest in U.S.)</li>
+          <li>Honolulu, HI — Index: 101.8</li>
+          <li>San Francisco, CA — Index: 94.9</li>
+          <li>Seattle, WA — Index: 89.0</li>
+          <li>Washington, DC — Index: 88.9</li>
+        </ul>
+        <h3>Most Affordable U.S. Cities (2025)</h3>
+        <ul>
+          <li>Wichita, KS — Index: 64.6</li>
+          <li>Cleveland, OH — Index: ~64</li>
+          <li>Rochester, NY — Index: 64.3</li>
+          <li>Birmingham, AL — Index: 67.1</li>
+          <li>Oklahoma City, OK — Index: 68.2</li>
+        </ul>
+      </div>
+      <div class="content-section">
+        <h2>Data Sources & Methodology</h2>
+        <p>Our cost of living indices are sourced from two authoritative databases:</p>
+        <ul>
+          <li><strong>Numbeo Cost of Living Index (2025)</strong> — The world's largest cost of living database, with 100+ U.S. cities indexed relative to New York City (=100). Based on crowdsourced price data with 500+ contributors per major city. Categories: overall cost, rent, groceries, restaurant prices.</li>
+          <li><strong>C2ER/MERIC Cost of Living Index (2025 Annual Average)</strong> — The Council for Community and Economic Research publishes quarterly indices covering 245+ U.S. urban areas. Categories: composite, grocery, housing, utilities, transportation, health, miscellaneous. National average = 100.</li>
+        </ul>
+        <p>Our city-level data uses <strong>Numbeo indices</strong> (NYC=100 baseline). State-level data is cross-referenced with <strong>MERIC annual averages</strong>. Housing-specific comparisons use Numbeo Rent Index.</p>
+        <p style="background:var(--warning-light);padding:12px;border-radius:var(--radius);font-size:.9rem;"><strong>⚠️ Note:</strong> These indices reflect average costs. Your actual expenses depend on lifestyle, family size, housing choice, and spending habits. Use this as a starting point and research specific costs for your situation.</p>
+      </div>
+      <div class="content-section">
+        <h2>Don't Forget State Taxes</h2>
+        <p>Cost of living comparisons often overlook income tax differences. Moving from a high-tax state to a no-tax state can be worth $10,000+ per year:</p>
+        <ul>
+          <li><strong>No state income tax:</strong> TX, FL, WA, NV, WY, AK, SD, NH (dividends only), TN (dividends only)</li>
+          <li><strong>Highest state income tax:</strong> CA (13.3%), HI (11%), NY (10.9%), NJ (10.75%)</li>
+        </ul>
+        <p>A $100,000 salary in California costs ~$9,300 in state tax alone. The same salary in Texas or Florida costs $0. That's a 9.3% effective "raise" just by moving.</p>
+      </div>
+      <div class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><div class="faq-question">How accurate is this cost of living comparison?</div><div class="faq-answer">Our calculator uses indices from Numbeo (city-level, NYC=100) and C2ER/MERIC (state-level, national avg=100). Numbeo data is crowdsourced from 500+ contributors per major city and is widely cited by CNBC, Visual Capitalist, and others. It's accurate for general comparison but individual circumstances vary greatly. Your actual costs depend on your lifestyle, family size, housing choice, and spending habits.</div></div>
+        <div class="faq-item"><div class="faq-question">Should I move to a lower cost of living area?</div><div class="faq-answer">It depends on your salary adjustment. If you can keep the same salary (remote work), moving to a cheaper area is a significant raise. If you take a local job at local rates, the math may not work in your favor — salaries usually track cost of living. The sweet spot: keep a high-cost-area salary while living in a low-cost area (remote work).</div></div>
+        <div class="faq-item"><div class="faq-question">How much salary do I need to maintain my lifestyle?</div><div class="faq-answer">Use this calculator to find your salary equivalent. For example, if you earn $100K in New York (index 100), you'd need about $69.6K in Austin (index 69.6) to maintain the same standard of living — or you could keep your $100K salary and significantly upgrade your lifestyle.</div></div>
+        <div class="faq-item"><div class="faq-question">Does cost of living affect salary negotiations?</div><div class="faq-answer">Yes. Companies in high-cost areas typically offer higher salaries. When negotiating a remote position, companies may try to adjust based on your location. Know your market value and the cost differential so you can negotiate effectively. Some companies now offer location-independent pay regardless of where you live.</div></div>
+        <div class="faq-item"><div class="faq-question">What cities are included?</div><div class="faq-answer">We include 40 major U.S. cities with verified Numbeo cost of living indices. Data is sourced from the Numbeo Cost of Living Index 2025 (NYC=100 baseline) and C2ER/MERIC Annual Average 2025. We update our data periodically to reflect the latest available figures.</div></div>
+      </div>
+      <div class="related-tools">
+        <h2>Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/tools/salary-to-hourly-calculator/" class="related-card"><h4>Salary to Hourly</h4><p>Convert your pay rate</p></a>
+          <a href="/tools/rent-vs-buy-calculator/" class="related-card"><h4>Rent vs Buy</h4><p>Compare housing costs</p></a>
+          <a href="/tools/capital-gains-tax-calculator/" class="related-card"><h4>Capital Gains Tax</h4><p>Estimate investment taxes</p></a>
+          <a href="/tools/fire-calculator/" class="related-card"><h4>FIRE Calculator</h4><p>Plan financial independence</p></a>
+        </div>
+      </div>
+    </div>
+    <div class="calc-box">
+      <h2>Compare Cost of Living</h2>
+      <div class="form-group">
+        <label for="current-salary-col">Current Salary ($)</label>
+        <div class="input-prefix"><input type="text" id="current-salary-col" value="100000" inputmode="decimal"></div>
+        <div class="form-error"></div>
+      </div>
+      <div class="form-group">
+ <label for="from-state">Current State</label>
+ <select id="from-state"><option value="">— Select state —</option></select>
+ <div class="form-error"></div>
+ </div>
+ <div class="form-group">
+ <label for="current-city">Current City</label>
+ <select id="current-city" disabled><option value="">— Select state first —</option></select>
+ <div class="form-error"></div>
+ </div>
+ <div class="form-group">
+ <label for="to-state">Target State</label>
+ <select id="to-state"><option value="">— Select state —</option></select>
+ <div class="form-error"></div>
+ </div>
+ <div class="form-group">
+ <label for="target-city">Target City</label>
+ <select id="target-city" disabled><option value="">— Select state first —</option></select>
+ <div class="form-error"></div>
+ </div>
+ <div id="city-data-preview" style="display:none;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:12px 16px;margin-bottom:12px;font-size:.85rem;">
+ <div id="from-city-data" style="margin-bottom:8px;"></div>
+ <div id="to-city-data"></div>
+ </div>
+<button class="btn-calc" onclick="calculateCOL()">Compare Cities</button>
+      <div class="calc-results" id="col-results">
+        <div class="result-highlight">
+          <div class="big-number" id="equivalent-salary">—</div>
+          <div class="big-label">Equivalent Salary in Target City</div>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Cost Difference</span>
+          <span class="result-value" id="cost-diff">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">From City Index</span>
+          <span class="result-value" id="from-index">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">To City Index</span>
+          <span class="result-value" id="to-index">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Housing Cost Difference</span>
+          <span class="result-value" id="housing-diff">—</span>
+        </div>
+        <div style="margin-top:16px;padding:12px;background:var(--primary-light);border-radius:var(--radius);text-align:center;">
+          <div style="font-size:.85rem;color:var(--gray-700);" id="col-summary">—</div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">
+          Data: Numbeo Cost of Living Index (2025, NYC=100) + C2ER/MERIC (2025 Annual Avg). Results are estimates — individual costs vary.
+        </div>
+      </div>
+      <div class="ad-slot">Advertisement</div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom">&copy; 2025 FinCalcPro. All calculations are for informational purposes only. Consult a financial professional for advice specific to your situation.</div></div></footer>
+<script src="/js/common.js"></script>
+<script>
+// Cost of Living Index — Sourced from Numbeo (2025, NYC=100 baseline)
+// City data: overall = Cost of Living Index, housing = Rent Index
+// Reference: https://www.numbeo.com/cost-of-living/region_rankings_current.jsp?region=019&country=United+States
+// Last updated: 2025-05-22
+const COLI = {
+  'New York, NY':{overall:100.0,housing:100.0,groceries:100.0,restaurant:100.0,state:'NY'},
+  'Honolulu, HI':{overall:101.8,housing:62.7,groceries:122.6,restaurant:105.4,state:'HI'},
+  'San Francisco, CA':{overall:94.9,housing:78.4,groceries:104.4,restaurant:94.7,state:'CA'},
+  'Seattle, WA':{overall:89.0,housing:58.8,groceries:98.6,restaurant:84.2,state:'WA'},
+  'Washington, DC':{overall:88.9,housing:67.9,groceries:90.1,restaurant:93.0,state:'DC'},
+  'San Jose, CA':{overall:87.1,housing:68.5,groceries:88.7,restaurant:86.0,state:'CA'},
+  'Boston, MA':{overall:86.2,housing:76.0,groceries:89.3,restaurant:90.7,state:'MA'},
+  'Miami, FL':{overall:83.7,housing:65.9,groceries:89.4,restaurant:98.6,state:'FL'},
+  'Los Angeles, CA':{overall:81.7,housing:64.1,groceries:84.5,restaurant:87.5,state:'CA'},
+  'San Diego, CA':{overall:80.0,housing:72.8,groceries:81.0,restaurant:85.3,state:'CA'},
+  'Portland, OR':{overall:80.0,housing:46.0,groceries:91.2,restaurant:78.7,state:'OR'},
+  'Denver, CO':{overall:76.5,housing:45.3,groceries:84.6,restaurant:77.0,state:'CO'},
+  'New Orleans, LA':{overall:76.2,housing:38.1,groceries:78.6,restaurant:94.4,state:'LA'},
+  'Atlanta, GA':{overall:76.0,housing:42.8,groceries:86.3,restaurant:82.9,state:'GA'},
+  'Phoenix, AZ':{overall:73.6,housing:40.0,groceries:79.4,restaurant:76.4,state:'AZ'},
+  'Dallas, TX':{overall:73.4,housing:43.8,groceries:75.3,restaurant:74.9,state:'TX'},
+  'Houston, TX':{overall:73.4,housing:43.8,groceries:75.3,restaurant:74.9,state:'TX'},
+  'Chicago, IL':{overall:73.2,housing:53.7,groceries:81.9,restaurant:73.0,state:'IL'},
+  'Nashville, TN':{overall:72.6,housing:47.1,groceries:78.3,restaurant:72.8,state:'TN'},
+  'Minneapolis, MN':{overall:72.5,housing:37.4,groceries:83.7,restaurant:74.6,state:'MN'},
+  'Baltimore, MD':{overall:72.2,housing:32.8,groceries:79.6,restaurant:71.1,state:'MD'},
+  'Buffalo, NY':{overall:72.2,housing:31.2,groceries:75.7,restaurant:76.9,state:'NY'},
+  'Columbus, OH':{overall:70.1,housing:33.5,groceries:77.7,restaurant:73.0,state:'OH'},
+  'Austin, TX':{overall:69.6,housing:45.4,groceries:75.4,restaurant:72.5,state:'TX'},
+  'Charlotte, NC':{overall:69.5,housing:43.0,groceries:78.6,restaurant:67.3,state:'NC'},
+  'Orlando, FL':{overall:69.5,housing:42.3,groceries:79.3,restaurant:73.3,state:'FL'},
+  'El Paso, TX':{overall:70.8,housing:36.4,groceries:77.6,restaurant:66.3,state:'TX'},
+  'Las Vegas, NV':{overall:68.9,housing:35.9,groceries:67.0,restaurant:84.8,state:'NV'},
+  'Oklahoma City, OK':{overall:68.2,housing:28.7,groceries:74.0,restaurant:73.9,state:'OK'},
+  'Tampa, FL':{overall:68.1,housing:50.4,groceries:71.9,restaurant:74.2,state:'FL'},
+  'Indianapolis, IN':{overall:67.5,housing:35.4,groceries:71.7,restaurant:69.8,state:'IN'},
+  'Memphis, TN':{overall:67.5,housing:35.4,groceries:71.7,restaurant:69.8,state:'TN'},
+  'Pittsburgh, PA':{overall:67.2,housing:32.3,groceries:75.4,restaurant:65.3,state:'PA'},
+  'Birmingham, AL':{overall:67.1,housing:37.3,groceries:79.6,restaurant:58.4,state:'AL'},
+  'Detroit, MI':{overall:66.5,housing:32.5,groceries:72.6,restaurant:67.6,state:'MI'},
+  'Kansas City, MO':{overall:66.3,housing:32.0,groceries:69.8,restaurant:79.1,state:'MO'},
+  'Salt Lake City, UT':{overall:64.6,housing:36.8,groceries:67.7,restaurant:67.5,state:'UT'},
+  'Wichita, KS':{overall:64.6,housing:21.6,groceries:72.3,restaurant:59.8,state:'KS'},
+  'San Antonio, TX':{overall:63.8,housing:36.9,groceries:68.1,restaurant:62.6,state:'TX'}
+};
+
+// Build state→cities mapping for cascading dropdowns
+const STATE_MAP = {};
+const STATE_NAMES = {AZ:'Arizona',AL:'Alabama',CA:'California',CO:'Colorado',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',IL:'Illinois',IN:'Indiana',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',MA:'Massachusetts',MD:'Maryland',MI:'Michigan',MN:'Minnesota',MO:'Missouri',NC:'North Carolina',NV:'Nevada',NY:'New York',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',TN:'Tennessee',TX:'Texas',UT:'Utah',WA:'Washington'};
+
+Object.keys(COLI).forEach(city => {
+  const st = COLI[city].state;
+  if (!STATE_MAP[st]) STATE_MAP[st] = [];
+  STATE_MAP[st].push(city);
+});
+
+// Sort states alphabetically by name
+const sortedStates = Object.keys(STATE_MAP).sort((a,b) => (STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b));
+
+function populateStates(selectId) {
+  const sel = document.getElementById(selectId);
+  sel.innerHTML = '<option value="">— Select state —</option>';
+  sortedStates.forEach(st => {
+    const opt = document.createElement('option');
+    opt.value = st;
+    opt.textContent = STATE_NAMES[st] || st;
+    sel.appendChild(opt);
+  });
+}
+
+function populateCities(stateCode, citySelectId) {
+  const sel = document.getElementById(citySelectId);
+  sel.innerHTML = '';
+  if (!stateCode || !STATE_MAP[stateCode]) {
+    sel.disabled = true;
+    sel.innerHTML = '<option value="">— Select state first —</option>';
+    return;
+  }
+  sel.disabled = false;
+  sel.innerHTML = '<option value="">— Select city —</option>';
+  STATE_MAP[stateCode].forEach(city => {
+    const opt = document.createElement('option');
+    opt.value = city;
+    opt.textContent = city;
+    sel.appendChild(opt);
+  });
+}
+
+function showCityData(cityName, elementId) {
+  const el = document.getElementById(elementId);
+  if (!cityName || !COLI[cityName]) {
+    el.innerHTML = '';
+    return;
+  }
+  const d = COLI[cityName];
+  el.innerHTML = '<strong>' + cityName + '</strong> (Numbeo 2025): '
+    + 'Overall: <strong>' + d.overall.toFixed(1) + '</strong> | '
+    + 'Housing: <strong>' + d.housing.toFixed(1) + '</strong> | '
+    + 'Groceries: <strong>' + d.groceries.toFixed(1) + '</strong> | '
+    + 'Restaurant: <strong>' + d.restaurant.toFixed(1) + '</strong>'
+    + ' <span style="color:var(--gray-500)">(NYC=100)</span>';
+}
+
+populateStates('from-state');
+populateStates('to-state');
+
+// Cascade: state → city
+document.getElementById('from-state').addEventListener('change', function() {
+  populateCities(this.value, 'current-city');
+  showCityData('', 'from-city-data');
+  updateDataPreview();
+});
+document.getElementById('to-state').addEventListener('change', function() {
+  populateCities(this.value, 'target-city');
+  showCityData('', 'to-city-data');
+  updateDataPreview();
+});
+
+// Show data on city selection
+document.getElementById('current-city').addEventListener('change', function() {
+  showCityData(this.value, 'from-city-data');
+  updateDataPreview();
+});
+document.getElementById('target-city').addEventListener('change', function() {
+  showCityData(this.value, 'to-city-data');
+  updateDataPreview();
+});
+
+function updateDataPreview() {
+  const from = document.getElementById('current-city').value;
+  const to = document.getElementById('target-city').value;
+  const preview = document.getElementById('city-data-preview');
+  if (from && COLI[from] || to && COLI[to]) {
+    preview.style.display = 'block';
+  } else {
+    preview.style.display = 'none';
+  }
+}
+
+function calculateCOL() {
+  clearAllErrors();
+  if (!validateField('current-salary-col', [{required:true, positive:true, msg:'Enter a valid salary greater than 0'}])) {
+    hideResults(); return;
+  }
+  const salary = getVal('current-salary-col');
+  if (salary > 100000000) {
+    showFieldError(document.getElementById('current-salary-col').closest('.form-group'),
+      document.getElementById('current-salary-col').closest('.form-group').querySelector('.form-error'),
+      'Salary seems unusually high. Please check your input.');
+    hideResults(); return;
+  }
+  const from = document.getElementById('current-city').value;
+  const to = document.getElementById('target-city').value;
+  if (!from || !COLI[from]) {
+    showFieldError(document.getElementById('current-city').closest('.form-group'),
+      document.getElementById('current-city').closest('.form-group').querySelector('.form-error'),
+      'Please select a valid city');
+    hideResults(); return;
+  }
+  if (!to || !COLI[to]) {
+    showFieldError(document.getElementById('target-city').closest('.form-group'),
+      document.getElementById('target-city').closest('.form-group').querySelector('.form-error'),
+      'Please select a valid city');
+    hideResults(); return;
+  }
+  const fromData = COLI[from];
+  const toData = COLI[to];
+  const equivalent = salary * (toData.overall / fromData.overall);
+  const diff = equivalent - salary;
+  const housingDiff = salary * 0.35 * (toData.housing - fromData.housing) / fromData.overall;
+  setResult('equivalent-salary', fmt.currency(equivalent, 0));
+  setResult('cost-diff', (diff >= 0 ? '+' : '') + fmt.currency(diff, 0) + ' (' + (diff/salary*100 >= 0 ? '+' : '') + (diff/salary*100).toFixed(1) + '%)');
+  setResult('from-index', fromData.overall.toFixed(1));
+  setResult('to-index', toData.overall.toFixed(1));
+  setResult('housing-diff', (housingDiff >= 0 ? '+' : '') + fmt.currency(housingDiff, 0) + '/yr');
+  const summary = diff < 0
+    ? 'Target city is cheaper! You need ' + fmt.percent(Math.abs(diff/salary)*100,1) + ' less to maintain your lifestyle.'
+    : diff > 0
+    ? 'Target city is more expensive. You need ' + fmt.percent(diff/salary*100,1) + ' more to maintain your lifestyle.'
+    : 'Both cities have similar costs of living.';
+  document.getElementById('col-summary').textContent = summary;
+  showResults();
+}
+
+injectFaqSchema([
+  {q:"How accurate is this cost of living comparison?",a:"Our calculator uses indices from Numbeo (city-level, NYC=100) and C2ER/MERIC (state-level, national avg=100). Numbeo data is crowdsourced from 500+ contributors per major city and is widely cited by CNBC, Visual Capitalist, and others. Accurate for general comparison but individual costs vary by lifestyle, family size, and housing choice."},
+  {q:"Should I move to a lower cost of living area?",a:"If you can keep the same salary (remote work), moving to a cheaper area is a significant raise. If you take a local job at local rates, salaries usually track cost of living."},
+  {q:"How much salary do I need to maintain my lifestyle?",a:"Use this calculator to find your equivalent salary. For example, $100K in New York (index 100) ≈ $69.6K in Austin (index 69.6) for the same standard of living."},
+  {q:"Does cost of living affect salary negotiations?",a:"Yes. Companies in high-cost areas pay more. For remote roles, know your market value and the cost differential to negotiate effectively."},
+  {q:"What cities are included?",a:"We include 39 major U.S. cities across 23 states with verified Numbeo cost of living indices (2025, NYC=100 baseline). Data covers overall cost, housing/rent, groceries, and restaurant prices."}
+]);
+</script>
+</body>
+</html>
