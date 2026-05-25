@@ -243,6 +243,7 @@ a:hover { text-decoration: underline; }
   display: none;
 }
 .calc-results.show { display: block; }
+.calc-results.sticky-result { position: sticky; bottom: 0; background: #fff; z-index: 5; padding-bottom: 8px; border-top: 2px solid var(--gray-200); box-shadow: 0 -4px 12px rgba(0,0,0,.08); }
 .result-row {
   display: flex;
   justify-content: space-between;
