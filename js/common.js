@@ -156,9 +156,11 @@ function getSelect(id) {
 
 // Show/hide results
 function showResults() {
+  document.querySelector('.calc-box')?.classList.add('has-results');
   document.querySelectorAll('.calc-results').forEach(el => el.classList.add('show'));
 }
 function hideResults() {
+  document.querySelector('.calc-box')?.classList.remove('has-results');
   document.querySelectorAll('.calc-results').forEach(el => el.classList.remove('show'));
 }
 

@@ -16,7 +16,77 @@
 
   <main class="container tool-page">
     <div class="tool-layout">
-      <div class="tool-content">
+       <!-- Calculator -->
+ <div class="calc-box">
+ <h2>Calculate Crypto Tax</h2>
+ <div class="calc-form">
+   <div class="form-group">
+          <label for="crypto-cost">Total Purchase Cost ($)</label>
+          <div class="input-prefix"><input type="text" id="crypto-cost" value="5000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="crypto-sale">Total Sale Value ($)</label>
+          <div class="input-prefix"><input type="text" id="crypto-sale" value="25000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="crypto-holding">Holding Period (years)</label>
+          <input type="text" id="crypto-holding" value="1.5" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="crypto-filing">Tax Filing Status</label>
+          <div class="combo-input" id="combo-crypto-filing">
+            <input type="text" id="crypto-filing" value="Single">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="crypto-income">Annual Taxable Income ($)</label>
+          <div class="input-prefix"><input type="text" id="crypto-income" value="100000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateCryptoTax()">Calculate Crypto Tax</button>
+ </div>
+ <div class="calc-output">
+   <div class="calc-results" id="crypto-results">
+          <div class="result-highlight">
+            <div class="big-number" id="crypto-total-tax">—</div>
+            <div class="big-label">Total Tax Owed</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Capital Gain</span>
+            <span class="result-value" id="crypto-gain">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Gain Type</span>
+            <span class="result-value" id="crypto-gain-type">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Federal Tax Rate</span>
+            <span class="result-value" id="crypto-fed-rate">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Federal Tax</span>
+            <span class="result-value" id="crypto-fed-tax">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">NIIT (3.8%)</span>
+            <span class="result-value" id="crypto-niit">—</span>
+          </div>
+          <div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
+            <span class="result-label">After-Tax Profit</span>
+            <span class="result-value" id="crypto-after-tax" style="color:var(--success);">—</span>
+          </div>
+        </div>
+   <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+ </div>
+ </div>
+ <!-- Content -->
+ <div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#tax-tools">Tax & Pay</a> / Crypto Tax Calculator</div>
         <h1>Crypto Tax Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Estimate your cryptocurrency capital gains tax. Whether you sold Bitcoin, traded altcoins, or cashed out DeFi yields — see your tax liability with 2025 rates.</p>
@@ -104,71 +174,6 @@
         </div>
       </div>
 
-      <div class="calc-box">
-        <h2>Calculate Crypto Tax</h2>
-        <div class="form-group">
-          <label for="crypto-cost">Total Purchase Cost ($)</label>
-          <div class="input-prefix"><input type="text" id="crypto-cost" value="5000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="crypto-sale">Total Sale Value ($)</label>
-          <div class="input-prefix"><input type="text" id="crypto-sale" value="25000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="crypto-holding">Holding Period (years)</label>
-          <input type="text" id="crypto-holding" value="1.5" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="crypto-filing">Tax Filing Status</label>
-          <div class="combo-input" id="combo-crypto-filing">
-            <input type="text" id="crypto-filing" value="Single">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="crypto-income">Annual Taxable Income ($)</label>
-          <div class="input-prefix"><input type="text" id="crypto-income" value="100000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateCryptoTax()">Calculate Crypto Tax</button>
-
-        <div class="calc-results" id="crypto-results">
-          <div class="result-highlight">
-            <div class="big-number" id="crypto-total-tax">—</div>
-            <div class="big-label">Total Tax Owed</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Capital Gain</span>
-            <span class="result-value" id="crypto-gain">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Gain Type</span>
-            <span class="result-value" id="crypto-gain-type">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Federal Tax Rate</span>
-            <span class="result-value" id="crypto-fed-rate">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Federal Tax</span>
-            <span class="result-value" id="crypto-fed-tax">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">NIIT (3.8%)</span>
-            <span class="result-value" id="crypto-niit">—</span>
-          </div>
-          <div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
-            <span class="result-label">After-Tax Profit</span>
-            <span class="result-value" id="crypto-after-tax" style="color:var(--success);">—</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
     </div>
   </main>
 

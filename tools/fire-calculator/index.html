@@ -35,7 +35,95 @@
   <main class="container tool-page">
     <div class="tool-layout">
       <!-- Content Column -->
-      <div class="tool-content">
+       <!-- Calculator -->
+ <div class="calc-box">
+ <h2>Calculate Your FIRE Timeline</h2>
+ <div class="calc-form">
+   <div class="form-group">
+          <label for="annual-income">Annual Income ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="annual-income" value="80000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="annual-expenses">Annual Expenses ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="annual-expenses" value="40000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="current-savings">Current Savings ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="current-savings" value="50000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="expected-return">Expected Return (% after inflation)</label>
+          <div class="combo-input" id="combo-return">
+            <input type="text" id="expected-return" value="7" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="inflation-rate">Inflation Rate (%)</label>
+          <div class="combo-input" id="combo-inflation">
+            <input type="text" id="inflation-rate" value="3" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="withdrawal-rate">Safe Withdrawal Rate (%)</label>
+          <div class="combo-input" id="combo-wr">
+            <input type="text" id="withdrawal-rate" value="4" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateFIRE()">Calculate FIRE Timeline</button>
+ </div>
+ <div class="calc-output">
+   <div class="calc-results" id="fire-results">
+          <div class="result-highlight">
+            <div class="big-number" id="fi-number">—</div>
+            <div class="big-label">Your FI Number</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Savings Rate</span>
+            <span class="result-value" id="savings-rate">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Annual Savings</span>
+            <span class="result-value" id="annual-savings">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Years to FIRE</span>
+            <span class="result-value" id="years-to-fire">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">FIRE Age</span>
+            <span class="result-value" id="fire-age">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Portfolio at FIRE</span>
+            <span class="result-value" id="portfolio-at-fire">—</span>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:var(--success-light);border-radius:var(--radius);text-align:center;">
+            <div style="font-size:.85rem;color:var(--gray-600);" id="fire-type">—</div>
+          </div>
+        </div>
+   <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+ </div>
+ </div>
+ <!-- Content -->
+ <div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#calculators">Calculators</a> / FIRE Calculator</div>
         <h1>FIRE Calculator — Financial Independence & Early Retirement</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Calculate when you can achieve financial independence and retire early. Find your FI number, see your timeline, and compare different FIRE strategies.</p>
@@ -159,91 +247,6 @@
         </div>
       </div>
 
-      <!-- Calculator Column -->
-      <div class="calc-box">
-        <h2>Calculate Your FIRE Timeline</h2>
-        <div class="form-group">
-          <label for="annual-income">Annual Income ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="annual-income" value="80000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="annual-expenses">Annual Expenses ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="annual-expenses" value="40000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="current-savings">Current Savings ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="current-savings" value="50000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="expected-return">Expected Return (% after inflation)</label>
-          <div class="combo-input" id="combo-return">
-            <input type="text" id="expected-return" value="7" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="inflation-rate">Inflation Rate (%)</label>
-          <div class="combo-input" id="combo-inflation">
-            <input type="text" id="inflation-rate" value="3" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="withdrawal-rate">Safe Withdrawal Rate (%)</label>
-          <div class="combo-input" id="combo-wr">
-            <input type="text" id="withdrawal-rate" value="4" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateFIRE()">Calculate FIRE Timeline</button>
-
-        <div class="calc-results" id="fire-results">
-          <div class="result-highlight">
-            <div class="big-number" id="fi-number">—</div>
-            <div class="big-label">Your FI Number</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Savings Rate</span>
-            <span class="result-value" id="savings-rate">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Annual Savings</span>
-            <span class="result-value" id="annual-savings">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Years to FIRE</span>
-            <span class="result-value" id="years-to-fire">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">FIRE Age</span>
-            <span class="result-value" id="fire-age">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Portfolio at FIRE</span>
-            <span class="result-value" id="portfolio-at-fire">—</span>
-          </div>
-          <div style="margin-top:16px;padding:12px;background:var(--success-light);border-radius:var(--radius);text-align:center;">
-            <div style="font-size:.85rem;color:var(--gray-600);" id="fire-type">—</div>
-          </div>
-        </div>
-
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
     </div>
   </main>
 
