@@ -156,10 +156,10 @@ function getSelect(id) {
 
 // Show/hide results
 function showResults() {
-  document.querySelectorAll('.calc-results').forEach(el => { el.classList.add('show'); el.classList.add('sticky-result'); });
+  document.querySelectorAll('.calc-results').forEach(el => el.classList.add('show'));
 }
 function hideResults() {
-  document.querySelectorAll('.calc-results').forEach(el => { el.classList.remove('show'); el.classList.remove('sticky-result'); });
+  document.querySelectorAll('.calc-results').forEach(el => el.classList.remove('show'));
 }
 
 // Set result value

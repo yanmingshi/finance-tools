@@ -16,7 +16,70 @@
 
   <main class="container tool-page">
     <div class="tool-layout">
-      <div class="tool-content">
+      <div class="calc-box">
+        <h2>Calculate Compound Interest</h2>
+        <div class="form-group">
+          <label for="initial-deposit">Initial Deposit ($)</label>
+          <div class="input-prefix"><input type="text" id="initial-deposit" value="5000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="monthly-contrib">Monthly Contribution ($)</label>
+          <div class="input-prefix"><input type="text" id="monthly-contrib" value="200" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="annual-rate">Annual Interest Rate (%)</label>
+          <div class="combo-input" id="combo-rate">
+            <input type="text" id="annual-rate" value="7" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="time-years">Time Period (years)</label>
+          <input type="text" id="time-years" value="20" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="compound-freq">Compounding Frequency</label>
+          <div class="combo-input" id="compound-combo">
+            <input type="text" id="compound-freq" value="Monthly">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateCI()">Calculate Growth</button>
+
+        <div class="calc-results" id="ci-results">
+          <div class="result-highlight">
+            <div class="big-number" id="final-balance">—</div>
+            <div class="big-label">Total Balance</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Contributions</span>
+            <span class="result-value" id="total-contrib">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Interest Earned</span>
+            <span class="result-value" id="interest-earned" style="color:var(--success);">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Interest as % of Total</span>
+            <span class="result-value" id="interest-pct">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Effective Annual Rate (APY)</span>
+            <span class="result-value" id="effective-rate">—</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  
+<div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#calculators">Calculators</a> / Compound Interest Calculator</div>
         <h1>Compound Interest Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">See how your savings grow over time with the power of compound interest. Add monthly contributions, adjust rates, and compare scenarios side by side.</p>
@@ -90,70 +153,7 @@
           </div>
         </div>
       </div>
-
-      <div class="calc-box">
-        <h2>Calculate Compound Interest</h2>
-        <div class="form-group">
-          <label for="initial-deposit">Initial Deposit ($)</label>
-          <div class="input-prefix"><input type="text" id="initial-deposit" value="5000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="monthly-contrib">Monthly Contribution ($)</label>
-          <div class="input-prefix"><input type="text" id="monthly-contrib" value="200" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="annual-rate">Annual Interest Rate (%)</label>
-          <div class="combo-input" id="combo-rate">
-            <input type="text" id="annual-rate" value="7" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="time-years">Time Period (years)</label>
-          <input type="text" id="time-years" value="20" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="compound-freq">Compounding Frequency</label>
-          <div class="combo-input" id="compound-combo">
-            <input type="text" id="compound-freq" value="Monthly">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateCI()">Calculate Growth</button>
-
-        <div class="calc-results" id="ci-results">
-          <div class="result-highlight">
-            <div class="big-number" id="final-balance">—</div>
-            <div class="big-label">Total Balance</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Contributions</span>
-            <span class="result-value" id="total-contrib">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Interest Earned</span>
-            <span class="result-value" id="interest-earned" style="color:var(--success);">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Interest as % of Total</span>
-            <span class="result-value" id="interest-pct">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Effective Annual Rate (APY)</span>
-            <span class="result-value" id="effective-rate">—</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
-    </div>
-  </main>
+</main>
 
   <footer class="site-footer"><div class="container"><div class="footer-bottom">&copy; 2025 FinCalcPro. All calculations are for informational purposes only.</div></div></footer>
 

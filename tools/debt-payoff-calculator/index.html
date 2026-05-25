@@ -33,7 +33,71 @@
 
   <main class="container tool-page">
     <div class="tool-layout">
-      <div class="tool-content">
+      <div class="calc-box">
+        <h2>Calculate Your Debt Payoff</h2>
+        <div class="form-group">
+          <label for="debt-balance">Total Debt Balance ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="debt-balance" value="15000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="interest-rate-debt">Average Interest Rate (%)</label>
+          <div class="combo-input" id="combo-rate-debt">
+            <input type="text" id="interest-rate-debt" value="18" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="monthly-payment">Monthly Payment ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="monthly-payment" value="300" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="extra-payment">Extra Monthly Payment ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="extra-payment" value="100" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateDebtPayoff()">Calculate Payoff</button>
+
+        <div class="calc-results" id="debt-results">
+          <div class="result-highlight">
+            <div class="big-number" id="payoff-date">—</div>
+            <div class="big-label">Months to Debt Free</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Interest Paid</span>
+            <span class="result-value" id="total-interest-debt">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Amount Paid</span>
+            <span class="result-value" id="total-paid">—</span>
+          </div>
+          <div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
+            <span class="result-label">Interest Saved (vs minimum)</span>
+            <span class="result-value" id="interest-saved" style="color:var(--success);">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Time Saved (vs minimum)</span>
+            <span class="result-value" id="time-saved" style="color:var(--success);">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Minimum Payment Only</span>
+            <span class="result-value" id="min-only-info">—</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  
+<div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#mortgage">Mortgage & Debt</a> / Debt Payoff Calculator</div>
         <h1>Debt Payoff Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Find the fastest and cheapest way to pay off your debt. Compare the avalanche and snowball methods, see how extra payments save you money, and get your debt-free date.</p>
@@ -116,71 +180,7 @@
           </div>
         </div>
       </div>
-
-      <div class="calc-box">
-        <h2>Calculate Your Debt Payoff</h2>
-        <div class="form-group">
-          <label for="debt-balance">Total Debt Balance ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="debt-balance" value="15000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="interest-rate-debt">Average Interest Rate (%)</label>
-          <div class="combo-input" id="combo-rate-debt">
-            <input type="text" id="interest-rate-debt" value="18" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="monthly-payment">Monthly Payment ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="monthly-payment" value="300" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="extra-payment">Extra Monthly Payment ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="extra-payment" value="100" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateDebtPayoff()">Calculate Payoff</button>
-
-        <div class="calc-results" id="debt-results">
-          <div class="result-highlight">
-            <div class="big-number" id="payoff-date">—</div>
-            <div class="big-label">Months to Debt Free</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Interest Paid</span>
-            <span class="result-value" id="total-interest-debt">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Amount Paid</span>
-            <span class="result-value" id="total-paid">—</span>
-          </div>
-          <div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
-            <span class="result-label">Interest Saved (vs minimum)</span>
-            <span class="result-value" id="interest-saved" style="color:var(--success);">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Time Saved (vs minimum)</span>
-            <span class="result-value" id="time-saved" style="color:var(--success);">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Minimum Payment Only</span>
-            <span class="result-value" id="min-only-info">—</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
-    </div>
-  </main>
+</main>
 
   <footer class="site-footer">
     <div class="container"><div class="footer-bottom">&copy; 2025 FinCalcPro. All calculations are for informational purposes only.</div></div>

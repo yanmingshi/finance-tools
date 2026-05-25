@@ -33,7 +33,84 @@
 
   <main class="container tool-page">
     <div class="tool-layout">
-      <div class="tool-content">
+      <div class="calc-box">
+        <h2>Convert Your Salary</h2>
+        <div class="form-group">
+          <label for="salary-amount">Pay Amount ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="salary-amount" value="60000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="pay-period">Pay Period</label>
+          <div class="combo-input" id="combo-pay-period">
+            <input type="text" id="pay-period" value="Annual">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="hours-per-week">Hours per Week</label>
+          <input type="text" id="hours-per-week" value="40" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="weeks-per-year">Weeks per Year</label>
+          <input type="text" id="weeks-per-year" value="52" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="overtime-hours">Avg Overtime Hours/Week (optional)</label>
+          <input type="text" id="overtime-hours" value="0" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateSalary()">Calculate Pay Rates</button>
+
+        <div class="calc-results" id="salary-results">
+          <div class="result-highlight">
+            <div class="big-number" id="hourly-rate">—</div>
+            <div class="big-label">Hourly Rate</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Annual Salary</span>
+            <span class="result-value" id="annual-salary">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Monthly Pay</span>
+            <span class="result-value" id="monthly-pay">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Bi-weekly Pay</span>
+            <span class="result-value" id="biweekly-pay">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Semi-monthly Pay</span>
+            <span class="result-value" id="semimonthly-pay">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Weekly Pay</span>
+            <span class="result-value" id="weekly-pay">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Daily Pay (8hr)</span>
+            <span class="result-value" id="daily-pay">—</span>
+          </div>
+          <div class="result-row" id="overtime-row" style="display:none;">
+            <span class="result-label">Overtime Hourly Rate (1.5x)</span>
+            <span class="result-value" id="overtime-rate">—</span>
+          </div>
+          <div class="result-row" id="total-with-ot-row" style="display:none;">
+            <span class="result-label">Annual with Overtime</span>
+            <span class="result-value" id="total-with-ot">—</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  
+<div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#tax-tools">Tax & Pay</a> / Salary to Hourly Calculator</div>
         <h1>Salary to Hourly Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Convert any salary to hourly, weekly, bi-weekly, semi-monthly, and monthly rates. See your true pay rate and how overtime affects your earnings.</p>
@@ -132,83 +209,7 @@
       </div>
 
       <!-- Calculator -->
-      <div class="calc-box">
-        <h2>Convert Your Salary</h2>
-        <div class="form-group">
-          <label for="salary-amount">Pay Amount ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="salary-amount" value="60000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="pay-period">Pay Period</label>
-          <div class="combo-input" id="combo-pay-period">
-            <input type="text" id="pay-period" value="Annual">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="hours-per-week">Hours per Week</label>
-          <input type="text" id="hours-per-week" value="40" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="weeks-per-year">Weeks per Year</label>
-          <input type="text" id="weeks-per-year" value="52" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="overtime-hours">Avg Overtime Hours/Week (optional)</label>
-          <input type="text" id="overtime-hours" value="0" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateSalary()">Calculate Pay Rates</button>
-
-        <div class="calc-results" id="salary-results">
-          <div class="result-highlight">
-            <div class="big-number" id="hourly-rate">—</div>
-            <div class="big-label">Hourly Rate</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Annual Salary</span>
-            <span class="result-value" id="annual-salary">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Monthly Pay</span>
-            <span class="result-value" id="monthly-pay">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Bi-weekly Pay</span>
-            <span class="result-value" id="biweekly-pay">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Semi-monthly Pay</span>
-            <span class="result-value" id="semimonthly-pay">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Weekly Pay</span>
-            <span class="result-value" id="weekly-pay">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Daily Pay (8hr)</span>
-            <span class="result-value" id="daily-pay">—</span>
-          </div>
-          <div class="result-row" id="overtime-row" style="display:none;">
-            <span class="result-label">Overtime Hourly Rate (1.5x)</span>
-            <span class="result-value" id="overtime-rate">—</span>
-          </div>
-          <div class="result-row" id="total-with-ot-row" style="display:none;">
-            <span class="result-label">Annual with Overtime</span>
-            <span class="result-value" id="total-with-ot">—</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
-    </div>
-  </main>
+</main>
 
   <footer class="site-footer">
     <div class="container">

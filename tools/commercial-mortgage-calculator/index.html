@@ -35,7 +35,81 @@
   <main class="container tool-page">
     <div class="tool-layout">
       <!-- Content Column -->
-      <div class="tool-content">
+      <div class="calc-box">
+        <h2>Calculate Commercial Mortgage</h2>
+        <div class="form-group">
+          <label for="loan-amount">Loan Amount ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="loan-amount" value="500000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="interest-rate">Interest Rate (%)</label>
+          <div class="input-suffix">
+            <input type="text" id="interest-rate" value="7.5" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="loan-term">Loan Term (years)</label>
+          <div class="combo-input" id="combo-loan-term">
+            <input type="text" id="loan-term" value="15" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="amortization">Amortization Period (years)</label>
+          <div class="combo-input" id="combo-amortization">
+            <input type="text" id="amortization" value="25" inputmode="decimal" placeholder="Enter years or same as term">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="annual-noi">Annual NOI — Net Operating Income ($)</label>
+          <div class="input-prefix">
+            <input type="text" id="annual-noi" value="65000" inputmode="decimal">
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateMortgage()">Calculate Payment</button>
+
+        <div class="calc-results" id="mortgage-results">
+          <div class="result-highlight">
+            <div class="big-number" id="monthly-payment">—</div>
+            <div class="big-label">Monthly Payment</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Interest Paid</span>
+            <span class="result-value" id="total-interest">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Cost of Loan</span>
+            <span class="result-value" id="total-cost">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Annual Debt Service</span>
+            <span class="result-value" id="annual-debt">—</span>
+          </div>
+          <div class="result-row" id="dscr-row" style="display:none;">
+            <span class="result-label">DSCR</span>
+            <span class="result-value" id="dscr-value">—</span>
+          </div>
+          <div class="result-row" id="balloon-row" style="display:none;">
+            <span class="result-label">Balloon Payment at Term</span>
+            <span class="result-value" id="balloon-value">—</span>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  
+<div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#mortgage">Mortgage</a> / Commercial Mortgage Calculator</div>
         <h1>Commercial Mortgage Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Calculate monthly payments, DSCR, and total costs for commercial real estate loans. Compare different loan terms and interest rates side by side.</p>
@@ -154,80 +228,7 @@
       </div>
 
       <!-- Calculator Column -->
-      <div class="calc-box">
-        <h2>Calculate Commercial Mortgage</h2>
-        <div class="form-group">
-          <label for="loan-amount">Loan Amount ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="loan-amount" value="500000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="interest-rate">Interest Rate (%)</label>
-          <div class="input-suffix">
-            <input type="text" id="interest-rate" value="7.5" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="loan-term">Loan Term (years)</label>
-          <div class="combo-input" id="combo-loan-term">
-            <input type="text" id="loan-term" value="15" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="amortization">Amortization Period (years)</label>
-          <div class="combo-input" id="combo-amortization">
-            <input type="text" id="amortization" value="25" inputmode="decimal" placeholder="Enter years or same as term">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="annual-noi">Annual NOI — Net Operating Income ($)</label>
-          <div class="input-prefix">
-            <input type="text" id="annual-noi" value="65000" inputmode="decimal">
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateMortgage()">Calculate Payment</button>
-
-        <div class="calc-results" id="mortgage-results">
-          <div class="result-highlight">
-            <div class="big-number" id="monthly-payment">—</div>
-            <div class="big-label">Monthly Payment</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Interest Paid</span>
-            <span class="result-value" id="total-interest">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Cost of Loan</span>
-            <span class="result-value" id="total-cost">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Annual Debt Service</span>
-            <span class="result-value" id="annual-debt">—</span>
-          </div>
-          <div class="result-row" id="dscr-row" style="display:none;">
-            <span class="result-label">DSCR</span>
-            <span class="result-value" id="dscr-value">—</span>
-          </div>
-          <div class="result-row" id="balloon-row" style="display:none;">
-            <span class="result-label">Balloon Payment at Term</span>
-            <span class="result-value" id="balloon-value">—</span>
-          </div>
-        </div>
-
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
-    </div>
-  </main>
+</main>
 
   <footer class="site-footer">
     <div class="container">

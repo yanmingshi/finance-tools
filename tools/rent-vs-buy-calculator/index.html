@@ -16,7 +16,80 @@
 
   <main class="container tool-page">
     <div class="tool-layout">
-      <div class="tool-content">
+      <div class="calc-box">
+        <h2>Rent vs Buy Comparison</h2>
+        <div class="form-group">
+          <label for="home-price">Home Price ($)</label>
+          <div class="input-prefix"><input type="text" id="home-price" value="400000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="down-payment-pct">Down Payment (%)</label>
+          <input type="text" id="down-payment-pct" value="20" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="mortgage-rate">Mortgage Rate (%)</label>
+          <div class="combo-input" id="combo-mort-rate">
+            <input type="text" id="mortgage-rate" value="6.5" inputmode="decimal">
+            <button type="button" class="combo-toggle">▾</button>
+            <div class="combo-dropdown"></div>
+          </div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="monthly-rent">Current Monthly Rent ($)</label>
+          <div class="input-prefix"><input type="text" id="monthly-rent" value="2000" inputmode="decimal"></div>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="rent-growth">Annual Rent Increase (%)</label>
+          <input type="text" id="rent-growth" value="3" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="home-appreciation">Annual Home Appreciation (%)</label>
+          <input type="text" id="home-appreciation" value="3" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="time-horizon">Time Horizon (years)</label>
+          <input type="text" id="time-horizon" value="10" inputmode="decimal">
+          <div class="form-error"></div>
+        </div>
+        <button class="btn-calc" onclick="calculateRentVsBuy()">Compare Costs</button>
+
+        <div class="calc-results" id="rvb-results">
+          <div class="result-highlight">
+            <div class="big-number" id="rvb-winner">—</div>
+            <div class="big-label">Better Option</div>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Cost of Renting</span>
+            <span class="result-value" id="total-rent-cost">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Cost of Buying</span>
+            <span class="result-value" id="total-buy-cost">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Advantage</span>
+            <span class="result-value" id="rvb-advantage">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Home Equity at End</span>
+            <span class="result-value" id="home-equity">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Invested Savings (if rent)</span>
+            <span class="result-value" id="invested-savings">—</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+      </div>
+    </div>
+  
+<div class="tool-content">
         <div class="breadcrumb"><a href="/">Home</a> / <a href="/#mortgage">Mortgage & Debt</a> / Rent vs Buy Calculator</div>
         <h1>Rent vs Buy Calculator</h1>
         <p style="color:var(--gray-500);margin-bottom:32px;">Should you rent or buy? Compare the true total cost of renting vs buying over any time period. Accounts for appreciation, tax deductions, maintenance, and opportunity cost of your down payment.</p>
@@ -96,80 +169,7 @@
           </div>
         </div>
       </div>
-
-      <div class="calc-box">
-        <h2>Rent vs Buy Comparison</h2>
-        <div class="form-group">
-          <label for="home-price">Home Price ($)</label>
-          <div class="input-prefix"><input type="text" id="home-price" value="400000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="down-payment-pct">Down Payment (%)</label>
-          <input type="text" id="down-payment-pct" value="20" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="mortgage-rate">Mortgage Rate (%)</label>
-          <div class="combo-input" id="combo-mort-rate">
-            <input type="text" id="mortgage-rate" value="6.5" inputmode="decimal">
-            <button type="button" class="combo-toggle">▾</button>
-            <div class="combo-dropdown"></div>
-          </div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="monthly-rent">Current Monthly Rent ($)</label>
-          <div class="input-prefix"><input type="text" id="monthly-rent" value="2000" inputmode="decimal"></div>
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="rent-growth">Annual Rent Increase (%)</label>
-          <input type="text" id="rent-growth" value="3" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="home-appreciation">Annual Home Appreciation (%)</label>
-          <input type="text" id="home-appreciation" value="3" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <div class="form-group">
-          <label for="time-horizon">Time Horizon (years)</label>
-          <input type="text" id="time-horizon" value="10" inputmode="decimal">
-          <div class="form-error"></div>
-        </div>
-        <button class="btn-calc" onclick="calculateRentVsBuy()">Compare Costs</button>
-
-        <div class="calc-results" id="rvb-results">
-          <div class="result-highlight">
-            <div class="big-number" id="rvb-winner">—</div>
-            <div class="big-label">Better Option</div>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Cost of Renting</span>
-            <span class="result-value" id="total-rent-cost">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Total Cost of Buying</span>
-            <span class="result-value" id="total-buy-cost">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Advantage</span>
-            <span class="result-value" id="rvb-advantage">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Home Equity at End</span>
-            <span class="result-value" id="home-equity">—</span>
-          </div>
-          <div class="result-row">
-            <span class="result-label">Invested Savings (if rent)</span>
-            <span class="result-value" id="invested-savings">—</span>
-          </div>
-        </div>
-        <div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
-      </div>
-    </div>
-  </main>
+</main>
 
   <footer class="site-footer"><div class="container"><div class="footer-bottom">&copy; 2025 FinCalcPro. All calculations are for informational purposes only.</div></div></footer>
 

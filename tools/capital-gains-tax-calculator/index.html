@@ -15,6 +15,85 @@
 <header class="site-header"><div class="container"><a href="/" class="site-logo">Fin<span>CalcPro</span></a><nav class="site-nav"><a href="/#calculators">Calculators</a><a href="/#tax-tools">Tax Tools</a><a href="/#compare">Comparisons</a></nav></div></header>
 <main class="container tool-page">
 <div class="tool-layout">
+<div class="calc-box">
+<h2>Calculate Capital Gains Tax</h2>
+<div class="form-group">
+<label for="purchase-price">Purchase Price ($)</label>
+<div class="input-prefix"><input type="text" id="purchase-price" value="10000" inputmode="decimal"></div>
+<div class="form-error"></div>
+</div>
+<div class="form-group">
+<label for="sale-price">Sale Price ($)</label>
+<div class="input-prefix"><input type="text" id="sale-price" value="20000" inputmode="decimal"></div>
+<div class="form-error"></div>
+</div>
+<div class="form-group">
+<label for="holding-period">Holding Period (years)</label>
+<input type="text" id="holding-period" value="2" inputmode="decimal">
+<div class="form-error"></div>
+</div>
+<div class="form-group">
+<label for="filing-status">Tax Filing Status</label>
+<div class="combo-input" id="combo-filing">
+<input type="text" id="filing-status" value="Single">
+<button type="button" class="combo-toggle">▾</button>
+<div class="combo-dropdown"></div>
+</div>
+<div class="form-error"></div>
+</div>
+<div class="form-group">
+<label for="annual-income">Annual Taxable Income ($)</label>
+<div class="input-prefix"><input type="text" id="annual-income" value="80000" inputmode="decimal"></div>
+<div class="form-error"></div>
+</div>
+<div class="form-group">
+<label for="tax-state">State</label>
+<div class="combo-input" id="combo-state">
+<input type="text" id="tax-state" value="CA">
+<button type="button" class="combo-toggle">▾</button>
+<div class="combo-dropdown"></div>
+</div>
+<div class="form-error"></div>
+</div>
+<button class="btn-calc" onclick="calculateCGTax()">Calculate Tax</button>
+<div class="calc-results" id="cg-results">
+<div class="result-highlight">
+<div class="big-number" id="total-tax">—</div>
+<div class="big-label">Total Tax Owed</div>
+</div>
+<div class="result-row">
+<span class="result-label">Capital Gain</span>
+<span class="result-value" id="capital-gain">—</span>
+</div>
+<div class="result-row">
+<span class="result-label">Gain Type</span>
+<span class="result-value" id="gain-type">—</span>
+</div>
+<div class="result-row">
+<span class="result-label">Federal Tax Rate</span>
+<span class="result-value" id="fed-rate">—</span>
+</div>
+<div class="result-row">
+<span class="result-label">Federal Tax</span>
+<span class="result-value" id="fed-tax">—</span>
+</div>
+<div class="result-row">
+<span class="result-label">NIIT (3.8%)</span>
+<span class="result-value" id="niit-tax">—</span>
+</div>
+<div class="result-row">
+<span class="result-label">State Tax</span>
+<span class="result-value" id="state-tax">—</span>
+</div>
+<div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
+<span class="result-label">After-Tax Profit</span>
+<span class="result-value" id="after-tax-profit" style="color:var(--success);">—</span>
+</div>
+</div>
+<div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
+</div>
+</div>
+
 <div class="tool-content">
 <div class="breadcrumb"><a href="/">Home</a> / <a href="/#tax-tools">Tax & Pay</a> / Capital Gains Tax Calculator</div>
 <h1>Capital Gains Tax Calculator</h1>
@@ -120,84 +199,6 @@
 <a href="/tools/crypto-tax-calculator/" class="related-card"><h4>Crypto Tax Calculator</h4><p>Estimate crypto taxes</p></a>
 <a href="/tools/salary-to-hourly-calculator/" class="related-card"><h4>Salary to Hourly</h4><p>Convert your pay rate</p></a>
 </div>
-</div>
-</div>
-<div class="calc-box">
-<h2>Calculate Capital Gains Tax</h2>
-<div class="form-group">
-<label for="purchase-price">Purchase Price ($)</label>
-<div class="input-prefix"><input type="text" id="purchase-price" value="10000" inputmode="decimal"></div>
-<div class="form-error"></div>
-</div>
-<div class="form-group">
-<label for="sale-price">Sale Price ($)</label>
-<div class="input-prefix"><input type="text" id="sale-price" value="20000" inputmode="decimal"></div>
-<div class="form-error"></div>
-</div>
-<div class="form-group">
-<label for="holding-period">Holding Period (years)</label>
-<input type="text" id="holding-period" value="2" inputmode="decimal">
-<div class="form-error"></div>
-</div>
-<div class="form-group">
-<label for="filing-status">Tax Filing Status</label>
-<div class="combo-input" id="combo-filing">
-<input type="text" id="filing-status" value="Single">
-<button type="button" class="combo-toggle">▾</button>
-<div class="combo-dropdown"></div>
-</div>
-<div class="form-error"></div>
-</div>
-<div class="form-group">
-<label for="annual-income">Annual Taxable Income ($)</label>
-<div class="input-prefix"><input type="text" id="annual-income" value="80000" inputmode="decimal"></div>
-<div class="form-error"></div>
-</div>
-<div class="form-group">
-<label for="tax-state">State</label>
-<div class="combo-input" id="combo-state">
-<input type="text" id="tax-state" value="CA">
-<button type="button" class="combo-toggle">▾</button>
-<div class="combo-dropdown"></div>
-</div>
-<div class="form-error"></div>
-</div>
-<button class="btn-calc" onclick="calculateCGTax()">Calculate Tax</button>
-<div class="calc-results" id="cg-results">
-<div class="result-highlight">
-<div class="big-number" id="total-tax">—</div>
-<div class="big-label">Total Tax Owed</div>
-</div>
-<div class="result-row">
-<span class="result-label">Capital Gain</span>
-<span class="result-value" id="capital-gain">—</span>
-</div>
-<div class="result-row">
-<span class="result-label">Gain Type</span>
-<span class="result-value" id="gain-type">—</span>
-</div>
-<div class="result-row">
-<span class="result-label">Federal Tax Rate</span>
-<span class="result-value" id="fed-rate">—</span>
-</div>
-<div class="result-row">
-<span class="result-label">Federal Tax</span>
-<span class="result-value" id="fed-tax">—</span>
-</div>
-<div class="result-row">
-<span class="result-label">NIIT (3.8%)</span>
-<span class="result-value" id="niit-tax">—</span>
-</div>
-<div class="result-row">
-<span class="result-label">State Tax</span>
-<span class="result-value" id="state-tax">—</span>
-</div>
-<div class="result-row" style="border-top:2px solid var(--gray-200);padding-top:12px;margin-top:4px;">
-<span class="result-label">After-Tax Profit</span>
-<span class="result-value" id="after-tax-profit" style="color:var(--success);">—</span>
-</div>
-</div>
-<div style="margin-top:8px;padding:8px 12px;background:var(--gray-100);border-radius:var(--radius);font-size:.75rem;color:var(--gray-500);text-align:center;">Formulas and default parameters verified against 2025 IRS/BLS data. Results are estimates for informational purposes only.</div><div class="ad-slot">Advertisement</div>
 </div>
 </div>
 </main>
