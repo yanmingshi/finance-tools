@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           <label for="annual-rate">Annual Interest Rate (%)</label>
-          <select id="annual-rate"></select>
+ <div class="input-suffix"><input type="text" id="annual-rate" value="5" inputmode="decimal"></div>
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -205,36 +205,9 @@
       showResults();
     }
 
+    
     (function(){
-  var sel = document.getElementById('rate');
-  if(!sel) return;
-  var opt = document.createElement('option');
-  opt.value = '1';
-  opt.textContent = '1 (Savings account)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '4';
-  opt.textContent = '4 (High-yield savings)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '5';
-  opt.textContent = '5 (CD)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '7';
-  opt.textContent = '7 (Stock market avg)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '10';
-  opt.textContent = '10 (S&P 500 avg)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '12';
-  opt.textContent = '12 (Aggressive portfolio)';
-  sel.appendChild(opt);
-})();
-    (function(){
-  var sel = document.getElementById('compound-combo');
+  var sel = document.getElementById('compound-freq');
   if(!sel) return;
   var opt = document.createElement('option');
   opt.value = 'Annually';
