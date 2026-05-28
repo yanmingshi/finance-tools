@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           <label for="mortgage-rate">Mortgage Rate (%)</label>
-          <select id="mortgage-rate"></select>
+          <input type="text" id="mortgage-rate" value="6.5" inputmode="decimal">
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -242,33 +242,7 @@
 
       showResults();
     }
-
-    (function(){
-  var sel = document.getElementById('mort-rate');
-  if(!sel) return;
-  var opt = document.createElement('option');
-  opt.value = '5.5';
-  opt.textContent = '5.5 (Excellent credit)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '6.0';
-  opt.textContent = '6.0 (Good credit)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '6.5';
-  opt.textContent = '6.5 (Average)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '7.0';
-  opt.textContent = '7.0 (Fair credit)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '7.5';
-  opt.textContent = '7.5 (Below average)';
-  sel.appendChild(opt);
-})();
-
-    injectFaqSchema([
+ injectFaqSchema([
       {q:"How many years do I need to stay for buying to be worth it?",a:"Typically 5-7 years to break even after closing and selling costs. Use this calculator with your specific numbers."},
       {q:"Does the mortgage interest deduction make buying cheaper?",a:"It helps less than most think. After 2017 tax reform, the standard deduction is $14,600/$29,200. Many homeowners don't benefit from itemizing."},
       {q:"What about the opportunity cost of a down payment?",a:"$60K down on a home means $60K NOT invested in stocks. At 7% return, that's $118K in 10 years. This calculator accounts for this opportunity cost."},

@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
           <label for="interest-rate-debt">Average Interest Rate (%)</label>
-          <select id="interest-rate-debt"></select>
+          <input type="text" id="interest-rate-debt" value="18" inputmode="decimal">
           <div class="form-error"></div>
         </div>
         <div class="form-group">
@@ -237,42 +237,7 @@
       setResult('min-only-info', minOnly.months >= 1200 ? 'Never pays off' : minOnly.months + ' months, ' + fmt.currency(minOnly.totalInterest) + ' interest');
 
       showResults();
-    }
-
-    (function(){
-  var sel = document.getElementById('rate-debt');
-  if(!sel) return;
-  var opt = document.createElement('option');
-  opt.value = '3';
-  opt.textContent = '3 (Student loan avg)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '5';
-  opt.textContent = '5 (Personal loan avg)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '10';
-  opt.textContent = '10 (Low credit card)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '15';
-  opt.textContent = '15 (Average credit card)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '18';
-  opt.textContent = '18 (Typical credit card)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '24';
-  opt.textContent = '24 (High credit card)';
-  sel.appendChild(opt);
-  var opt = document.createElement('option');
-  opt.value = '29';
-  opt.textContent = '29 (Subprime credit card)';
-  sel.appendChild(opt);
-})();
-
-    injectFaqSchema([
+    } injectFaqSchema([
       { q: "Should I pay off debt or invest?", a: "If your debt costs more than 7% (stock market average), pay the debt first. For low-rate debts (mortgage at 4-5%, student loans at 3-5%), investing extra money often makes more sense." },
       { q: "How much should I pay above the minimum?", a: "As much as you can afford without sacrificing emergency savings. Even $25-50/month extra makes a significant difference. Aim for at least double the minimum." },
       { q: "Should I consolidate my debts?", a: "Consolidation makes sense if you get a lower rate. A personal loan at 10% to pay off cards at 20%+ saves money. But only if you stop using the cards." },
